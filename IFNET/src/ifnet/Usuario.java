@@ -18,5 +18,14 @@ public class Usuario {
 		this.prontuario = prontuario;
 	}
 	
+	//implementar
+	public void cadastrarUsuario() {
+		
+	}
+	
+	//implementar
+	public void excluirUsuario() {
+		
+	}
 	
 }

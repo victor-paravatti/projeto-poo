@@ -3,7 +3,7 @@ package ifnet;
 public class Professor extends Usuario{
 	
 	private String area;
-	private String diciplMinistrada;
+	private Disciplina disciplMinistrada;
 	
 	public String getArea() {
 		return area;
@@ -11,12 +11,11 @@ public class Professor extends Usuario{
 	public void setArea(String area) {
 		this.area = area;
 	}
-	public String getDiciplMinistrada() {
-		return diciplMinistrada;
+	public Disciplina getDiciplMinistrada() {
+		return disciplMinistrada;
 	}
-	public void setDiciplMinistrada(String diciplMinistrada) {
-		this.diciplMinistrada = diciplMinistrada;
+	public void setDiciplMinistrada(Disciplina disciplMinistrada) {
+		this.disciplMinistrada = disciplMinistrada;
 	}
-	
 
 }
