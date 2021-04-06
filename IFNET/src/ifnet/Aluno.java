@@ -1,9 +1,15 @@
 package ifnet;
 
 public class Aluno extends Usuario{
-
+	
 	private String email;
 	private Curso curso;
+	
+	public Aluno(String nome, String prontuario, String email, Curso curso) {
+		super(nome, prontuario);
+		this.email = email;
+		this.curso = curso;
+	}
 	
 	public String getEmail() {
 		return email;

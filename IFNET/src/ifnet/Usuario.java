@@ -5,6 +5,11 @@ public class Usuario {
 	private String nome;
 	private String prontuario;
 	
+	public Usuario(String nome, String prontuario) {
+		this.nome = nome;
+		this.prontuario = prontuario;
+	}
+	
 	public String getNome() {
 		return nome;
 	}

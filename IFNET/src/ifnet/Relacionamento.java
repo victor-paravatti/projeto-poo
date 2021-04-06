@@ -1,13 +1,11 @@
 package ifnet;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-
 public class Relacionamento {
 	
 	private Usuario usuario;
 	private String grauRelacionamento;
-	private ArrayList<LinkedList<Usuario>> usuarios = new ArrayList<LinkedList<Usuario>>();
+	private Usuario usuarioRelacionado;
+	
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -20,11 +18,12 @@ public class Relacionamento {
 	public void setGrauRelacionamento(String grauRelacionamento) {
 		this.grauRelacionamento = grauRelacionamento;
 	}
-	public ArrayList<LinkedList<Usuario>> getUsuarios() {
-		return usuarios;
+	
+	public Usuario getUsuarioRelacionado() {
+		return usuarioRelacionado;
 	}
-	public void setUsuarios(ArrayList<LinkedList<Usuario>> usuarios) {
-		this.usuarios = usuarios;
+	public void setUsuarioRelacionado(Usuario usuarioRelacionado) {
+		this.usuarioRelacionado = usuarioRelacionado;
 	}
 	
 	//implementar
@@ -39,7 +38,7 @@ public class Relacionamento {
 
 	//implementar
 	public Usuario consultarUsuarioMaisRelacionado() {
-		Usuario usuario = new Usuario();
+		Usuario usuario = new Usuario("Gilberto", "BP3007685");
 		return usuario;
 	}
 }
