@@ -5,6 +5,11 @@ public class Disciplina {
 	private String nome;
 	private String semestre;
 	private Curso curso;
+	
+	public Disciplina(String nome) {
+		this.nome = nome;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
