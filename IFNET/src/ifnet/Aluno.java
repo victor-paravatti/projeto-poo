@@ -9,8 +9,8 @@ public class Aluno extends Usuario{
 	
 	Scanner leitura = new Scanner(System.in);
 	
-	public Aluno(String nome, String prontuario, String email, Curso curso) {
-		super(nome, prontuario);
+	public Aluno(String nome, String prontuario, String senha, String email, Curso curso) {
+		super(nome, prontuario, senha);
 		this.email = email;
 		this.curso = curso;
 	}
@@ -30,28 +30,5 @@ public class Aluno extends Usuario{
 	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
-
-	@Override
-	public Usuario cadastrarUsuario() {
-		
-		String nome, prontuario, email, curso;
-		
-		System.out.println("Informe o nome: ");
-		nome = leitura.nextLine();
-		
-		System.out.println("Informe o prontuário: ");
-		prontuario = leitura.nextLine();
-		
-		System.out.println("Informe o e-mail: ");
-		email = leitura.nextLine();
-		
-		System.out.println("Informe o curso: ");
-		curso = leitura.nextLine();
-		
-		Aluno aluno = new Aluno(nome, prontuario, email, new Curso(curso)); 
-		
-		return aluno;
-	}
-	
 	
 }
