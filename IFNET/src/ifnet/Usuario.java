@@ -81,6 +81,7 @@ public abstract class Usuario {
 			
 			novoUsuario = new Aluno(nome, prontuario, senha, email, new Curso(curso));
 		}
+		
 		return novoUsuario;
 	}
 	
@@ -105,6 +106,7 @@ public abstract class Usuario {
 				}
 			}		
 		}
+		
 		return null;
 	}
 	

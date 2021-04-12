@@ -8,11 +8,12 @@ public class Main {
 	public static void main(String[] args) {
 		
 		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+
 		ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
 		ArrayList<Conteudo> tipoconteudos = new ArrayList<Conteudo>();
 		
 		Scanner leitura = new Scanner(System.in);
-		Usuario novoUsuario, usuarioAtual = new Professor("Aluno", "prontuario", "senha", new Area("area"), new Disciplina("disciplina"));
+		Usuario novoUsuario, usuarioAtual = null;
 		boolean comecar = true, contem, sair = true, voltar = true, entrou = false;
 		int opcao = 0;			
 	
@@ -26,17 +27,25 @@ public class Main {
 				switch(opcao) {
 				
 					case 1:
-						/*
-						usuarioAtual = Usuario.loginUsuario(usuarios);
-						contem = usuarios.contains(usuarioAtual);
-						*/
-						sair = false;
+						
+						do {
+							usuarioAtual = Usuario.loginUsuario(usuarios);
+							if(usuarioAtual  != null) {
+								entrou = true;
+								sair = false;
+							} else {
+								System.out.println("O e-mail e a senha fornecidos n�o correspondem �s "
+										+ "informa��es em nossos registros. Verifique-as e tente novamente.");
+							}
+						}while(usuarioAtual == null);
+						
 						break;
 					case 2:
-						/*
+						
 						novoUsuario = usuarioAtual = Usuario.cadastrarUsuario();
 						usuarios.add(novoUsuario);
-						*/
+						
+						
 						break;
 					case 3:
 						comecar = sair = false;
