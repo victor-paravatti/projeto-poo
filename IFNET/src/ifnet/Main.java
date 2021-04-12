@@ -8,12 +8,15 @@ public class Main {
 	public static void main(String[] args) {
 		
 		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+
+		ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
+		ArrayList<Conteudo> tipoconteudos = new ArrayList<Conteudo>();
 		
 		Scanner leitura = new Scanner(System.in);
 		Usuario novoUsuario, usuarioAtual = null;
 		boolean comecar = true, contem, sair = true, voltar = true, entrou = false;
-		int opcao = 0;
-		
+		int opcao = 0;			
+	
 		while(comecar) {
 			
 			do {
@@ -31,8 +34,8 @@ public class Main {
 								entrou = true;
 								sair = false;
 							} else {
-								System.out.println("O e-mail e a senha fornecidos não correspondem às "
-										+ "informações em nossos registros. Verifique-as e tente novamente.");
+								System.out.println("O e-mail e a senha fornecidos nï¿½o correspondem ï¿½s "
+										+ "informaï¿½ï¿½es em nossos registros. Verifique-as e tente novamente.");
 							}
 						}while(usuarioAtual == null);
 						
@@ -48,7 +51,7 @@ public class Main {
 						comecar = sair = false;
 						break;
 					default:
-						System.out.println("Opção inválida");
+						System.out.println("Opï¿½ï¿½o invï¿½lida");
 				}
 			}while(sair);
 			
@@ -82,12 +85,12 @@ public class Main {
 											System.out.println("Conteudo postado");
 											break;
 										case 2:
-											System.out.println("Conteudo excluido");
+										System.out.println("****Conteudo excluido com Sucesso****");
 											break;
 										case 3:
 											voltar = false;
 										default:
-											System.out.println("Opção inválida");
+											System.out.println("Opï¿½ï¿½o invï¿½lida");
 									}
 								}while(voltar);
 							
@@ -115,7 +118,7 @@ public class Main {
 											voltar = false;
 											break;
 										default:
-											System.out.println("Opção inválida");
+											System.out.println("Opï¿½ï¿½o invï¿½lida");
 									}
 									
 								}while(voltar);
@@ -140,7 +143,7 @@ public class Main {
 											voltar = false;
 											break;
 										default:
-											System.out.println("Opção inválida");
+											System.out.println("Opï¿½ï¿½o invï¿½lida");
 									}
 									
 								}while(voltar);
@@ -165,7 +168,7 @@ public class Main {
 											voltar = false;
 											break;
 										default:
-											System.out.println("Opção inválida");
+											System.out.println("Opï¿½ï¿½o invï¿½lida");
 									}
 									
 								}while(voltar);
@@ -178,7 +181,7 @@ public class Main {
 								sair = false;
 								break;
 							default:
-								System.out.println("Opção inválida");
+								System.out.println("Opï¿½ï¿½o invï¿½lida");
 						}
 						
 					}while(sair);
@@ -216,7 +219,7 @@ public class Main {
 											voltar = false;
 											break;
 										default:
-											System.out.println("Opção inválida");
+											System.out.println("Opï¿½ï¿½o invï¿½lida");
 									}
 									
 								}while(voltar);
@@ -245,7 +248,7 @@ public class Main {
 											voltar = false;
 											break;
 										default:
-											System.out.println("Opção inválida");
+											System.out.println("Opï¿½ï¿½o invï¿½lida");
 									}	
 									
 								}while(voltar);
@@ -277,7 +280,7 @@ public class Main {
 											voltar = false;
 											 break;
 										default:
-											System.out.println("Opção inválida");
+											System.out.println("Opï¿½ï¿½o invï¿½lida");
 									}	
 									
 								}while(voltar);
@@ -288,7 +291,7 @@ public class Main {
 								//VOLTAR AO MENU ANTERIOR
 								break;
 							default:
-								System.out.println("Opção inválida");
+								System.out.println("Opï¿½ï¿½o invï¿½lida");
 						}
 					}while(sair);		
 				}	
