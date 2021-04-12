@@ -38,7 +38,6 @@ public class Relacionamento {
 
 	//implementar
 	public Usuario consultarUsuarioMaisRelacionado() {
-		Usuario usuario = new Usuario("Gilberto", "BP3007685");
-		return usuario;
+		return null;
 	}
 }
