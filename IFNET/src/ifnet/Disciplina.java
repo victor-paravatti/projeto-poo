@@ -10,8 +10,6 @@ public class Disciplina {
 	private String semestre;
 	private String curso;
 	
-	
-
 	static Scanner leitura = new Scanner(System.in);
 
 	public String getCurso() {
@@ -29,6 +27,7 @@ public class Disciplina {
 		disciplina.curso = curso;
 
 	}
+	
 	// Contutor para acessar as variaveis locais
 	public Disciplina(String nome2, String curso2, String semestre2) {
 	}
@@ -46,16 +45,14 @@ public class Disciplina {
 		this.semestre = semestre;
 	}
 
-	
-	
 	public static Disciplina  cadastrarUsuario() {
 		
-			Disciplina novaDiciplina;
-			String semestre, curso;
-			int opc = 0;
-			
-			//Looop para cadastrar mais de uma Diciplina		
-			do {
+		Disciplina novaDiciplina;
+		String semestre, curso;
+		int opc = 0;
+		
+		//Looop para cadastrar mais de uma Diciplina		
+		do {
 
 			System.out.println("Informe O nome da Diciplina que deseja adicionar");
 			nome = leitura.nextLine();
@@ -65,12 +62,12 @@ public class Disciplina {
 			curso = leitura.nextLine();
 			System.out.println("Se desejar sair do cadastro de Diciplina aperte {1}");
 			opc = Integer.parseInt(leitura.nextLine());
-
+	
 			novaDiciplina = new Disciplina(nome, curso, semestre);
 
-			}while( opc !=0 );
+		}while( opc !=0 );
+			
 		return novaDiciplina;
-
 
 	}
 	

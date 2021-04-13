@@ -48,14 +48,14 @@ public abstract class Usuario {
 		int tipo = 0;
 		
 		do {
-			System.out.println("Vocï¿½ ï¿½ Aluno ou Professor?\n1 - Aluno\n2 - Professor");
+			System.out.println("Você é Aluno ou Professor?\n1 - Aluno\n2 - Professor");
 			tipo = Integer.parseInt(leitura.nextLine());
 		} while(tipo != 1 && tipo != 2);
 		
 		System.out.println("Informe o nome: ");
 		nome = leitura.nextLine();
 		
-		System.out.println("Informe o prontuï¿½rio: ");
+		System.out.println("Informe o prontuário: ");
 		prontuario = leitura.nextLine();
 		
 		System.out.println("Informe a senha: ");
@@ -63,7 +63,7 @@ public abstract class Usuario {
 		
 		if(tipo == 2) {
 			
-			System.out.println("Informe a area: ");
+			System.out.println("Informe a área: ");
 			area = leitura.nextLine();
 			
 			System.out.println("Informe a disciplina: ");

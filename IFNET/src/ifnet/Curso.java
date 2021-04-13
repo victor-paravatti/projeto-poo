@@ -37,5 +37,4 @@ public class Curso {
 		this.disciplinas = disciplinas;
 	}
 	
-	
 }

@@ -9,12 +9,15 @@ public class Relacionamento {
 	public Usuario getUsuario() {
 		return usuario;
 	}
+	
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
 	public String getGrauRelacionamento() {
 		return grauRelacionamento;
 	}
+	
 	public void setGrauRelacionamento(String grauRelacionamento) {
 		this.grauRelacionamento = grauRelacionamento;
 	}
@@ -22,6 +25,7 @@ public class Relacionamento {
 	public Usuario getUsuarioRelacionado() {
 		return usuarioRelacionado;
 	}
+	
 	public void setUsuarioRelacionado(Usuario usuarioRelacionado) {
 		this.usuarioRelacionado = usuarioRelacionado;
 	}
