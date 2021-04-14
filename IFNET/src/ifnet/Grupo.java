@@ -1,5 +1,7 @@
 package ifnet;
 
+import java.util.ArrayList;
+
 public class Grupo {
 	
 	private String nome;
@@ -7,6 +9,7 @@ public class Grupo {
 	private int quantidadeUsuarios;
 	private Professor criador;
 	private Curso curso;
+	private String tipo;
 	
 	public String getNome() {
 		return nome;
@@ -48,9 +51,32 @@ public class Grupo {
 		this.curso = curso;
 	}
 	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	
+	//implementar
+	public void criarGrupo() {
+		
+	}
+	
+	//implementar
+	public void excluirGrupo() {
+		
+	}
+	
 	//implementar
 	public void consultarGrupoMaisUsuarios() {
 		
+	}
+	
+	//implementar
+	public Grupo consultarGpPorDisciplina(ArrayList<Grupo> grupos, Disciplina disciplina) {
+		return null;
 	}
 
 }
