@@ -44,9 +44,9 @@ public class Disciplina {
 		this.semestre = semestre;
 	}
 
-	public static Disciplina  cadastrarUsuario() {
+	public static ArrayList<Disciplina> cadastrarDisciplina() {
 		
-		Disciplina novaDiciplina;
+		ArrayList<Disciplina> novasDisciplinas = new ArrayList<Disciplina>();
 		String semestre, curso;
 		int opc = 0;
 		
@@ -61,16 +61,16 @@ public class Disciplina {
 			curso = leitura.nextLine();
 			System.out.println("Se desejar sair do cadastro de Diciplina aperte {1}");
 			opc = Integer.parseInt(leitura.nextLine());
-	
-			novaDiciplina = new Disciplina(nome, curso, semestre);
+			
+			novasDisciplinas.add(new Disciplina(nome, curso, semestre));
 
 		}while( opc !=0 );
 			
-		return novaDiciplina;
+		return novasDisciplinas;
 
 	}
 	
-// implementação da função excluirDiciplina
+	//excluir a disciplina
 	public static boolean excluirDiciplina(ArrayList<Disciplina> disciplinas, Disciplina disciplina) {	
 		return  disciplinas.remove(disciplina);
 	}

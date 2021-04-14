@@ -41,6 +41,10 @@ public abstract class Usuario {
 		this.senha = senha;
 	}
 	
+	/*
+	realiza o cadastro do usuário, a partir do inserção das 
+	informações do usuário, dependendo do tipo do usuário
+	*/
 	public static Usuario cadastrarUsuario() {
 		
 		Usuario novoUsuario;
@@ -85,20 +89,25 @@ public abstract class Usuario {
 		return novoUsuario;
 	}
 	
+	//excluir o usuário a partir do recebimento do array de usuários e o usuário a ser excluido
 	public static boolean excluirUsuario(ArrayList<Usuario> usuarios, Usuario usuario) {	
 		return usuarios.remove(usuario);
 	}
 	
+	//faz o login do usuário, recebendo o array de usuários
 	public static Usuario loginUsuario(ArrayList<Usuario> usuarios) {
 		
 		String prontuario, senha;
 		
+		//recebe o prontuário
 		System.out.println("Informe o prontuario: ");
 		prontuario = leitura.nextLine();
 		
+		//recebe a senha
 		System.out.println("Informe a senha: ");
 		senha = leitura.nextLine();
 		
+		//verifica se o prontuario e a senha constam no cadastro de algum usuário
 		for(Usuario usuario: usuarios) {
 			if(usuario.getProntuario().equals(prontuario)) {
 				if(usuario.getSenha().equals(senha)) {

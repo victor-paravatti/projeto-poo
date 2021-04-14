@@ -7,6 +7,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
+		//cria os ArrayList onde as classes ficaram salvas
 		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 		ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
 		ArrayList<Conteudo> conteudos = new ArrayList<Conteudo>();
@@ -15,6 +16,8 @@ public class Main {
 		
 		Scanner leitura = new Scanner(System.in);
 		
+		Disciplina disciplinaExcluir;
+		ArrayList<Disciplina> novasDisciplinas;
 		Usuario novoUsuario, usuarioAtual = null;
 		boolean comecar = true, sair = true, voltar = true, entrou = false;
 		int opcao = 0;			
@@ -22,6 +25,7 @@ public class Main {
 		while(comecar) {
 			
 			do {
+				//página principal do sistema
 				System.out.println("Bem vindo ao IFNET");
 				System.out.println("1.Entrar\n2.Criar nova conta\n3.Sair");
 				opcao = Integer.parseInt(leitura.nextLine());
@@ -133,7 +137,10 @@ public class Main {
 									
 									switch(opcao) {
 										case 1:
-											System.out.println("Disciplina cadastrada");
+											
+											novasDisciplinas = Disciplina.cadastrarDisciplina();
+											disciplinas.addAll(novasDisciplinas);
+											
 											break;
 										case 2:
 											System.out.println("Disciplina excluida");

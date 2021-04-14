@@ -7,7 +7,7 @@ public class Curso {
 	
 	private String nome;
 	private int duracao;
-	private ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();;
+	private ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	
 	public Curso(String nome) {
 		this.nome = nome;
@@ -41,4 +41,8 @@ public class Curso {
 		this.disciplinas.add(disciplina);
 	}
 	
+	public static Curso cadastrarCurso() {
+
+		return null;
+	}
 }
