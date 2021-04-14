@@ -8,7 +8,6 @@ public class Grupo {
 	private Disciplina disciplina;
 	private int quantidadeUsuarios;
 	private Professor criador;
-	private Curso curso;
 	private String tipo;
 	
 	public String getNome() {
@@ -43,14 +42,6 @@ public class Grupo {
 		this.criador = criador;
 	}
 	
-	public Curso getCurso() {
-		return curso;
-	}
-	
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
-	
 	public String getTipo() {
 		return tipo;
 	}
@@ -75,7 +66,7 @@ public class Grupo {
 	}
 	
 	//implementar
-	public Grupo consultarGpPorDisciplina(ArrayList<Grupo> grupos, Disciplina disciplina) {
+	public Grupo consultarGpPesquisaPorDisciplina(ArrayList<Grupo> grupos, Disciplina disciplina) {
 		return null;
 	}
 

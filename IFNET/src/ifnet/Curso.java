@@ -7,7 +7,7 @@ public class Curso {
 	
 	private String nome;
 	private int duracao;
-	private ArrayList<LinkedList<Disciplina>> disciplinas = new ArrayList<LinkedList<Disciplina>>();
+	private ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();;
 	
 	public Curso(String nome) {
 		this.nome = nome;
@@ -29,12 +29,16 @@ public class Curso {
 		this.duracao = duracao;
 	}
 	
-	public ArrayList<LinkedList<Disciplina>> getDisciplinas() {
-		return disciplinas;
+	public void getDisciplinas() {
+		
+		for(Disciplina disciplina:this.disciplinas) {
+			System.out.println(disciplinas.indexOf(disciplina) + disciplina.getNome());
+		}
+		
 	}
 	
-	public void setDisciplinas(ArrayList<LinkedList<Disciplina>> disciplinas) {
-		this.disciplinas = disciplinas;
+	public void setDisciplinas(Disciplina disciplina) {
+		this.disciplinas.add(disciplina);
 	}
 	
 }

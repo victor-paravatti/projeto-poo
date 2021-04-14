@@ -3,7 +3,6 @@ package ifnet;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class Disciplina {
 	
 	private static String nome;
