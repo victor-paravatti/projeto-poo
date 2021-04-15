@@ -143,6 +143,8 @@ public class Main {
 											
 											break;
 										case 2:
+											
+											
 											System.out.println("Disciplina excluida");
 											break;
 										case 3:

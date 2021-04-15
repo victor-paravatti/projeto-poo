@@ -64,7 +64,7 @@ public class Disciplina {
 			
 			novasDisciplinas.add(new Disciplina(nome, curso, semestre));
 
-		}while( opc !=0 );
+		}while( opc != 1 );
 			
 		return novasDisciplinas;
 
