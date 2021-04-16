@@ -13,6 +13,10 @@ public class Curso {
 	
 	static Scanner leitura = new Scanner(System.in);
 	
+	public Curso(String nome) {
+		this.nome = nome;
+	}
+	
 	public Curso(String nome, int semestres) {
 		this.nome = nome;
 		this.semestres = semestres;
@@ -40,21 +44,12 @@ public class Curso {
 
 	public void setDisciplinasPorSemestre(ArrayList<Disciplina> disciplinas) {
 		
-		int posicao, opcao, semestre;
+		int opcao, semestre;
 		Disciplina disciplinaEscolhida;
 		
 		do {
 			
-			System.out.println("Disciplinas");
-			
-			for(Disciplina disciplina:disciplinas) {
-				posicao = disciplinas.indexOf(disciplina);
-				System.out.println(posicao + ": " + disciplina.getNome());
-			}
-			
-			System.out.println("Informe o número da disciplina desejada: ");
-			posicao = Integer.parseInt(leitura.nextLine());
-			disciplinaEscolhida = disciplinas.get(posicao);
+			disciplinaEscolhida = Disciplina.exibirDisciplinas(disciplinas);
 			
 			System.out.println("Informe o semetre da disciplina");
 			semestre = Integer.parseInt(leitura.nextLine());

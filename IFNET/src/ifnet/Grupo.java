@@ -6,9 +6,13 @@ public class Grupo {
 	
 	private String nome;
 	private Disciplina disciplina;
-	private int quantidadeUsuarios;
+	private ArrayList<Usuario> usuariosGrupo = new ArrayList<Usuario>();
 	private Professor criador;
 	private String tipo;
+	
+	public Grupo() {
+		
+	}
 	
 	public String getNome() {
 		return nome;
@@ -22,16 +26,16 @@ public class Grupo {
 		return disciplina;
 	}
 	
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
+	public void setDisciplina(ArrayList<Disciplina> disciplinas) {
+		this.disciplina = Disciplina.exibirDisciplinas(disciplinas);
 	}
 	
-	public int getQuantidadeUsuarios() {
-		return quantidadeUsuarios;
+	public ArrayList<Usuario> getUsuariosGrupo() {
+		return usuariosGrupo;
 	}
-	
-	public void setQuantidadeUsuarios(int quantidadeUsuarios) {
-		this.quantidadeUsuarios = quantidadeUsuarios;
+
+	public void setUsuariosGrupo(Usuario usuario) {
+		this.usuariosGrupo.add(usuario);
 	}
 	
 	public Professor getCriador() {

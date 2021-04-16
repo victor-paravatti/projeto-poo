@@ -83,7 +83,7 @@ public abstract class Usuario {
 			System.out.println("Informe o curso: ");
 			curso = leitura.nextLine();
 			
-			novoUsuario = new Aluno(nome, prontuario, senha, email, new Curso(curso,));
+			novoUsuario = new Aluno(nome, prontuario, senha, email, new Curso(curso));
 		}
 		
 		return novoUsuario;

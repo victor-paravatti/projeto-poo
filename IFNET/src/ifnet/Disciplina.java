@@ -74,5 +74,26 @@ public class Disciplina {
 	public static boolean excluirDiciplina(ArrayList<Disciplina> disciplinas, Disciplina disciplina) {	
 		return  disciplinas.remove(disciplina);
 	}
+	
+	public static Disciplina exibirDisciplinas(ArrayList<Disciplina> disciplinas) {
+		
+		int posicao;
+		Disciplina disciplinaEscolhida;
+		
+		System.out.println("Disciplinas");
+		
+		for(Disciplina disciplina:disciplinas) {
+			posicao = disciplinas.indexOf(disciplina);
+			System.out.println(posicao + ": " + disciplina.getNome());
+		}
+		
+		System.out.println("Informe o número da disciplina desejada: ");
+		posicao = Integer.parseInt(leitura.nextLine());
+		
+		disciplinaEscolhida = disciplinas.get(posicao);
+		
+		return disciplinaEscolhida;
+		
+	}
 
 }
