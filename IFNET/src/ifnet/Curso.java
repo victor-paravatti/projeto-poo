@@ -13,10 +13,9 @@ public class Curso {
 	
 	static Scanner leitura = new Scanner(System.in);
 	
-	public Curso(String nome, int semestres, ArrayList<Disciplina> disciplinas) {
+	public Curso(String nome, int semestres) {
 		this.nome = nome;
 		this.semestres = semestres;
-		this.setDisciplinasPorSemestre(disciplinas);
 	} 
 	
 	public String getNome() {
@@ -34,21 +33,8 @@ public class Curso {
 	public void setSemestres(int semestres) {
 		this.semestres = semestres;
 	}
-	
-	
-	public static Curso cadastrarCurso() {
-		return null;
-	}
 
 	public Map<Integer, Disciplina> getDisciplinasPorSemestre() {
-		
-		
-		
-		
-		
-		
-		
-		
 		return disciplinasPorSemestre;
 	}
 
@@ -80,6 +66,28 @@ public class Curso {
 			
 		}while(opcao != 2);
 		
+	}
+	
+	public static Curso cadastrarCurso() {
+		
+		String nome;
+		int semestres;
+		
+		System.out.println("Cadastrar Curso");
+		
+		System.out.println("Informe o nome do curso: ");
+		nome = leitura.next();
+		
+		System.out.println("Informe a quantidade de semestres do curso: ");
+		semestres = Integer.parseInt(leitura.next());
+		
+		Curso novoCurso = new Curso(nome, semestres);
+		
+		return novoCurso;
+	}
+	
+	public static Boolean excluirCurso(ArrayList<Curso> cursos, Curso curso) {
+		return cursos.remove(curso);
 	}
 
 }
