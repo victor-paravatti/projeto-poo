@@ -68,22 +68,30 @@ public class Curso {
 		
 	}
 	
-	public static Curso cadastrarCurso() {
+	public static ArrayList<Curso> cadastrarCurso() {
 		
 		String nome;
-		int semestres;
+		int semestres, opcao;
+		ArrayList<Curso> novosCursos = new ArrayList<Curso>();
 		
-		System.out.println("Cadastrar Curso");
+		do {
+			
+			System.out.println("Cadastrar Curso");
+			
+			System.out.println("Informe o nome do curso: ");
+			nome = leitura.next();
+			
+			System.out.println("Informe a quantidade de semestres do curso: ");
+			semestres = Integer.parseInt(leitura.next());
+			
+			System.out.println("Deseja cadastrar outra disciplina no curso?\n1. Sim\n2. Não");
+			opcao = Integer.parseInt(leitura.nextLine());
+			
+			novosCursos.add(new Curso(nome, semestres));
+			
+		}while(opcao != 2);
 		
-		System.out.println("Informe o nome do curso: ");
-		nome = leitura.next();
-		
-		System.out.println("Informe a quantidade de semestres do curso: ");
-		semestres = Integer.parseInt(leitura.next());
-		
-		Curso novoCurso = new Curso(nome, semestres);
-		
-		return novoCurso;
+		return novosCursos;
 	}
 	
 	public static Boolean excluirCurso(ArrayList<Curso> cursos, Curso curso) {
