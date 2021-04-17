@@ -1,10 +1,10 @@
 package ifnet;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
-public class Grupo {
+public class Grupo implements Comparable<Object>{
 	
 	private String nome;
 	private Disciplina disciplina;
@@ -61,7 +61,6 @@ public class Grupo {
 		this.tipo = tipo;
 	}
 	
-	
 	public static Grupo criarGrupo(ArrayList<Disciplina> disciplinas, Professor criador) {
 		
 		String nome, tipo;
@@ -90,14 +89,17 @@ public class Grupo {
 		return grupos.remove(grupoExcluir);
 	}
 	
-	
 	public void consultarGrupoMaisUsuarios(ArrayList<Grupo> grupos) {
 		
 		System.out.println("TOP 10 - Grupo com com mais usuários");
 		
-		Arrays.sort(grupos);
+		Collections.sort(grupos);
+		
+		for(int posicao = 0; posicao < 10; posicao ++) {
+			System.out.println(posicao + 1 + ". " + grupos.get(posicao).getNome());
+		};
+		
 	}
-	
 	
 	public static void consultarGpPesquisaPorDisciplina(ArrayList<Grupo> grupos, ArrayList<Disciplina> disciplinas, Usuario usuario) {
 		
@@ -150,6 +152,19 @@ public class Grupo {
 		
 		return grupoEscolhido;
 		
+	}
+
+	@Override
+	public int compareTo(Object arg0) {
+		
+		int valor = 0;
+		
+		if(getUsuariosGrupo().size() == ((Grupo) arg0).getUsuariosGrupo().size()) valor = 0;
+		if(getUsuariosGrupo().size() < ((Grupo) arg0).getUsuariosGrupo().size()) valor = -1;
+		if(getUsuariosGrupo().size() > ((Grupo) arg0).getUsuariosGrupo().size()) valor = 1;
+		
+		return valor;
+
 	}
 
 }
