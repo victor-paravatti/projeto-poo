@@ -84,7 +84,7 @@ public class Disciplina {
 		
 		for(Disciplina disciplina:disciplinas) {
 			posicao = disciplinas.indexOf(disciplina);
-			System.out.println(posicao + ": " + disciplina.getNome());
+			System.out.println(posicao + ". " + disciplina.getNome());
 		}
 		
 		System.out.println("Informe o número da disciplina desejada: ");
