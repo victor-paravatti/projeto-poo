@@ -9,15 +9,15 @@ public class Grupo implements Comparable<Object>{
 	private String nome;
 	private Disciplina disciplina;
 	private ArrayList<Usuario> usuariosGrupo = new ArrayList<Usuario>();
-	private Professor criador;
+	private Usuario criador;
 	private String tipo;
 	
 	static Scanner leitura = new Scanner(System.in);
 	
-	public Grupo(String nome, ArrayList<Disciplina> disciplinas, Professor criador, String tipo) {
+	public Grupo(String nome, ArrayList<Disciplina> disciplinas, Usuario usuarioAtual, String tipo) {
 		this.nome = nome;
 		this.setDisciplina(disciplinas);
-		this.criador = criador;
+		this.criador = usuarioAtual;
 		this.tipo = tipo;
 	}
 	
@@ -45,7 +45,7 @@ public class Grupo implements Comparable<Object>{
 		this.usuariosGrupo.add(usuario);
 	}
 	
-	public Professor getCriador() {
+	public Usuario getCriador() {
 		return criador;
 	}
 	
@@ -61,7 +61,7 @@ public class Grupo implements Comparable<Object>{
 		this.tipo = tipo;
 	}
 	
-	public static Grupo criarGrupo(ArrayList<Disciplina> disciplinas, Professor criador) {
+	public static Grupo criarGrupo(ArrayList<Disciplina> disciplinas, Usuario usuarioAtual) {
 		
 		String nome, tipo;
 		
@@ -73,23 +73,45 @@ public class Grupo implements Comparable<Object>{
 		System.out.println("Tipo do grupo\n1. Pesquisa\n2. Trabalho");
 		tipo = leitura.nextLine();
 		
-		Grupo novoGrupo = new Grupo(nome, disciplinas, criador, tipo);
+		System.out.println("Grupo criado!");
+		
+		Grupo novoGrupo = new Grupo(nome, disciplinas, usuarioAtual, tipo);
 		
 		return novoGrupo;
 		
 	}
 	
-	
-	public static Boolean excluirGrupo(ArrayList<Grupo> grupos) {
+	public static void excluirGrupo(ArrayList<Grupo> grupos, Usuario usuario) {
 		
 		Grupo grupoExcluir;
+		int opcao = 0;
 		
 		grupoExcluir = Grupo.exibirGrupos(grupos);
 		
-		return grupos.remove(grupoExcluir);
+		do {
+			
+			System.out.println("Você tem certeza que deseja excluir o grupo? "
+					+ "Essa ação não pode ser desfeita\n1.Sim\n2.Não");
+			opcao = Integer.parseInt(leitura.nextLine());
+			
+			switch(opcao) {
+			
+				case 1:
+					if(grupoExcluir.getCriador() == usuario) {
+						grupos.remove(grupoExcluir);
+						System.out.println("Grupo excluído");
+					} else System.out.println("Você não tem permissão para excluir esse grupo,"
+							+ "somente o criador do grupo pode excluí-lo");
+				case 2:
+					System.out.println("Curso não excluído");
+					break;
+				default:
+					System.out.println("Opção invàlida");
+			}
+		}while(opcao != 1 && opcao != 2);
 	}
 	
-	public void consultarGrupoMaisUsuarios(ArrayList<Grupo> grupos) {
+	public static void consultarGrupoMaisUsuarios(ArrayList<Grupo> grupos) {
 		
 		System.out.println("TOP 10 - Grupo com com mais usuários");
 		

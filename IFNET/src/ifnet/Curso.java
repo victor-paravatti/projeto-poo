@@ -17,9 +17,10 @@ public class Curso {
 		this.nome = nome;
 	}
 	
-	public Curso(String nome, int semestres) {
+	public Curso(String nome, int semestres, ArrayList<Disciplina> disciplinas) {
 		this.nome = nome;
 		this.semestres = semestres;
+		this.setDisciplinasPorSemestre(disciplinas);
 	} 
 	
 	public String getNome() {
@@ -63,10 +64,10 @@ public class Curso {
 		
 	}
 	
-	public static ArrayList<Curso> cadastrarCurso() {
+	public static ArrayList<Curso> cadastrarCurso(ArrayList<Disciplina> disciplinas) {
 		
 		String nome;
-		int semestres, opcao;
+		int semestres, opcao = 0;
 		ArrayList<Curso> novosCursos = new ArrayList<Curso>();
 		
 		do {
@@ -79,18 +80,66 @@ public class Curso {
 			System.out.println("Informe a quantidade de semestres do curso: ");
 			semestres = Integer.parseInt(leitura.next());
 			
-			System.out.println("Deseja cadastrar outra disciplina no curso?\n1. Sim\n2. Não");
-			opcao = Integer.parseInt(leitura.nextLine());
+			System.out.println("Deseja cadastrar outro curso?\n1.Sim\n2.Não");
+			opcao = Integer.parseInt(leitura.next());
 			
-			novosCursos.add(new Curso(nome, semestres));
-			
-		}while(opcao != 2);
+			if(opcao !=1 && opcao != 2) System.out.println("Opção inválida");
 		
+			novosCursos.add(new Curso(nome, semestres, disciplinas));
+			
+		}while(opcao !=1 && opcao != 2);
+		
+		System.out.println("Curso cadastrado!");
+			
 		return novosCursos;
 	}
 	
-	public static Boolean excluirCurso(ArrayList<Curso> cursos, Curso curso) {
-		return cursos.remove(curso);
+	public static void excluirCurso(ArrayList<Curso> cursos) {
+		
+		Curso cursoExcluir;
+		int opcao;
+		
+		cursoExcluir = Curso.exibirCursos(cursos);
+				
+		do {
+			
+			System.out.println("Você tem certeza que deseja excluir o curso? "
+					+ "Essa ação não pode ser desfeita\n1.Sim\n2.Não");
+			opcao = Integer.parseInt(leitura.nextLine());
+			
+			switch(opcao) {
+			
+				case 1:
+					cursos.remove(cursoExcluir);
+					System.out.println("Curso excluído");
+				case 2:
+					System.out.println("Curso não excluído");
+					break;
+				default:
+					System.out.println("Opção invàlida");
+			}
+		}while(opcao != 1 && opcao != 2);
 	}
-
+	
+	public static Curso exibirCursos(ArrayList<Curso> cursos) {
+		
+		int posicao;
+		Curso cursoEscolhido;
+		
+		System.out.println("Cursos");
+		
+		for(Curso curso:cursos) {
+			posicao = cursos.indexOf(curso);
+			System.out.println(posicao + ": " + curso.getNome());
+		}
+		
+		System.out.println("Informe o número da grupo desejado: ");
+		posicao = Integer.parseInt(leitura.nextLine());
+		
+		cursoEscolhido = cursos.get(posicao);
+		
+		return cursoEscolhido;
+		
+	}
+	
 }
