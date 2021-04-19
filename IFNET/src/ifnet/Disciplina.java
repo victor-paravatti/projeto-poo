@@ -3,15 +3,12 @@ package ifnet;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class Disciplina {
 	
 	private static String nome;
 	private String semestre;
 	private String curso;
 	
-	
-
 	static Scanner leitura = new Scanner(System.in);
 
 	public String getCurso() {
@@ -29,6 +26,7 @@ public class Disciplina {
 		disciplina.curso = curso;
 
 	}
+	
 	// Contutor para acessar as variaveis locais
 	public Disciplina(String nome2, String curso2, String semestre2) {
 	}
@@ -46,16 +44,14 @@ public class Disciplina {
 		this.semestre = semestre;
 	}
 
-	
-	
-	public static Disciplina  cadastrarUsuario() {
+	public static ArrayList<Disciplina> cadastrarDisciplina() {
 		
-			Disciplina novaDiciplina;
-			String semestre, curso;
-			int opc = 0;
-			
-			//Looop para cadastrar mais de uma Diciplina		
-			do {
+		ArrayList<Disciplina> novasDisciplinas = new ArrayList<Disciplina>();
+		String semestre, curso;
+		int opc = 0;
+		
+		//Looop para cadastrar mais de uma Diciplina		
+		do {
 
 			System.out.println("Informe O nome da Diciplina que deseja adicionar");
 			nome = leitura.nextLine();
@@ -65,18 +61,39 @@ public class Disciplina {
 			curso = leitura.nextLine();
 			System.out.println("Se desejar sair do cadastro de Diciplina aperte {1}");
 			opc = Integer.parseInt(leitura.nextLine());
+			
+			novasDisciplinas.add(new Disciplina(nome, curso, semestre));
 
-			novaDiciplina = new Disciplina(nome, curso, semestre);
-
-			}while( opc !=0 );
-		return novaDiciplina;
-
+		}while( opc != 1 );
+			
+		return novasDisciplinas;
 
 	}
 	
-// implementação da função excluirDiciplina
+	//excluir a disciplina
 	public static boolean excluirDiciplina(ArrayList<Disciplina> disciplinas, Disciplina disciplina) {	
 		return  disciplinas.remove(disciplina);
+	}
+	
+	public static Disciplina exibirDisciplinas(ArrayList<Disciplina> disciplinas) {
+		
+		int posicao;
+		Disciplina disciplinaEscolhida;
+		
+		System.out.println("Disciplinas");
+		
+		for(Disciplina disciplina:disciplinas) {
+			posicao = disciplinas.indexOf(disciplina);
+			System.out.println(posicao + ". " + disciplina.getNome());
+		}
+		
+		System.out.println("Informe o n�mero da disciplina desejada: ");
+		posicao = Integer.parseInt(leitura.nextLine());
+		
+		disciplinaEscolhida = disciplinas.get(posicao);
+		
+		return disciplinaEscolhida;
+		
 	}
 
 }

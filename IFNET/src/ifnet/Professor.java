@@ -1,5 +1,6 @@
 package ifnet;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Professor extends Usuario{
@@ -27,8 +28,8 @@ public class Professor extends Usuario{
 		return disciplMinistrada;
 	}
 	
-	public void setDiciplMinistrada(Disciplina disciplMinistrada) {
-		this.disciplMinistrada = disciplMinistrada;
+	public void setDiciplMinistrada(ArrayList<Disciplina> disciplinas) {
+		this.disciplMinistrada = Disciplina.exibirDisciplinas(disciplinas);
 	}
 
 }
