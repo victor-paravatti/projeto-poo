@@ -70,7 +70,7 @@ public class Relacionamento {
 		
 	}
 	
-	//Ja defini o grau de comfiadilidade e atribui aou usuario desejado
+	
 	public void alterarGrauConfiabilidade() {
 		
 	}
