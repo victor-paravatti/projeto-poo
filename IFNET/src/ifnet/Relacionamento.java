@@ -26,7 +26,7 @@ public class Relacionamento {
 		Relacionamento relacionamento = (Relacionamento) o;
 		return Objects.equals(usuario, relacionamento.usuario) && Objects.equals(grauRelacionamento, relacionamento.grauRelacionamento) && Objects.equals(usuarioRelacionado, relacionamento.usuarioRelacionado);
 	}
-
+	//hashCode para a implementação do map
 	@Override
 	public int hashCode() {
 		return Objects.hash(usuario, grauRelacionamento, usuarioRelacionado);
