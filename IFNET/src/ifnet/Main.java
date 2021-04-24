@@ -1,6 +1,7 @@
 package ifnet;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -13,7 +14,7 @@ public class Main {
 		ArrayList<Conteudo> conteudos = new ArrayList<Conteudo>();
 		ArrayList<Grupo> grupos = new ArrayList<Grupo>();
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
-		
+		Map<String,String> map =new HashMap<String,String>();		
 		Scanner leitura = new Scanner(System.in);
 		
 		Usuario usuarioAtual = null;
@@ -23,7 +24,7 @@ public class Main {
 		while(comecar) {
 			
 			do {
-				//página principal do sistema
+				//pï¿½gina principal do sistema
 				System.out.println("Bem vindo ao IFNET");
 				System.out.println("1.Entrar\n2.Criar nova conta\nS.Sair");
 				opcao = leitura.nextLine();
@@ -38,8 +39,8 @@ public class Main {
 								entrou = true;
 								sair = false;
 							} else {
-								System.out.println("O e-mail e a senha fornecidos não correspondem às "
-										+ "informações em nossos registros. Verifique-as e tente novamente.");
+								System.out.println("O e-mail e a senha fornecidos nï¿½o correspondem ï¿½s "
+										+ "informaï¿½ï¿½es em nossos registros. Verifique-as e tente novamente.");
 							}
 						}while(usuarioAtual == null);
 						
@@ -51,7 +52,7 @@ public class Main {
 						comecar = sair = false;
 						break;
 					default:
-						System.out.println("Opção Inválida");
+						System.out.println("Opï¿½ï¿½o Invï¿½lida");
 				}
 			}while(sair);
 			
@@ -73,23 +74,22 @@ public class Main {
 					
 						case "1":
 							
-							do {
-								
+							do {								
 								System.out.println("Conteudo");
-								System.out.println("1.Publicar Conteúdo\n2.Excluir Conteudo\nV.Voltar");
+								System.out.println("1.Publicar Conteï¿½do\n2.Excluir Conteudo\nV.Voltar");
 								opcao = leitura.nextLine();
 								
 								switch(opcao) {
 									case "1":
-										System.out.println("Conteúdo publicado");
+										System.out.println("Conteï¿½do publicado");
 										break;
 									case "2":
-									System.out.println("Conteúdo excluido");
+									System.out.println("Conteï¿½do excluido");
 										break;
 									case "V":
 										voltar = false;
 									default:
-										System.out.println("Opção invàlida");
+										System.out.println("Opï¿½ï¿½o invï¿½lida");
 								}
 							}while(voltar);
 						
@@ -100,7 +100,7 @@ public class Main {
 								
 								System.out.println("Amizade");
 								System.out.println("1.Enviar pedido de amizade\n2.Definir grau de confiabilidade"
-										+ "\n3.Consultar usuário com mais relacionamentos\nV.Voltar");
+										+ "\n3.Consultar usuï¿½rio com mais relacionamentos\nV.Voltar");
 								opcao = leitura.nextLine();
 								
 								switch(opcao) {
@@ -111,13 +111,13 @@ public class Main {
 										System.out.println("Grau de amizade definido");
 										break;
 									case "3":
-										System.out.println("Consultado usuários com mais relacionamentos");
+										System.out.println("Consultado usuï¿½rios com mais relacionamentos");
 										break;
 									case "V":
 										voltar = false;
 										break;
 									default:
-										System.out.println("Opção invàlida");
+										System.out.println("Opï¿½ï¿½o invï¿½lida");
 								}
 								
 							}while(voltar);
@@ -158,7 +158,7 @@ public class Main {
 										voltar = false;
 										break;
 									default:
-										System.out.println("Opção invàlida");
+										System.out.println("Opï¿½ï¿½o invï¿½lida");
 								}
 								
 							}while(voltar);
@@ -190,7 +190,7 @@ public class Main {
 										voltar = false;
 										break;
 									default:
-										System.out.println("Opção invàlida");
+										System.out.println("Opï¿½ï¿½o invï¿½lida");
 										
 								}
 					
@@ -222,7 +222,7 @@ public class Main {
 										voltar = false;
 										break;
 									default:
-										System.out.println("Opção invàlida");
+										System.out.println("OpÃ§Ã£o invalida");
 								}
 								
 							}while(voltar);
@@ -248,7 +248,7 @@ public class Main {
 										voltar = false;
 										break;
 									default:
-										System.out.println("Opção invàlida");
+										System.out.println("Opï¿½ï¿½o invï¿½lida");
 								}
 								
 							}while(voltar);
@@ -263,7 +263,7 @@ public class Main {
 							entrou = false;
 							break;
 						default:
-							System.out.println("Opção invàlida");
+							System.out.println("Opï¿½ï¿½o invï¿½lida");
 					}
 				}while(sair);	
 			}
