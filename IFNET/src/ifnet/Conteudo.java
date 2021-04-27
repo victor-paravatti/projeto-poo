@@ -5,12 +5,14 @@ import java.util.Scanner;
 
 public class Conteudo {
 	
+	private String titulo;
 	private String tipoConteudo;
 	private Usuario publicador;
 
 	static Scanner leitura = new Scanner(System.in);
 	
-	public Conteudo(String tipoConteudo, Usuario publicador) {
+	public Conteudo(String titulo, String tipoConteudo, Usuario publicador) {
+		this.titulo = titulo;
 		this.tipoConteudo = tipoConteudo;
 		this.publicador = publicador;
 	}	
@@ -28,15 +30,26 @@ public class Conteudo {
 		this.publicador = publicador;
 	}
 	
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+	
 	public static Conteudo inseriConteudo(ArrayList<Conteudo> conteudos, Usuario usuario) {
 		
 		Conteudo novoConteudo;
-		String tipoConteudo;
+		String tipoConteudo, titulo;
+		
+		System.out.println("Informe o titulo do contéudo");
+		titulo = leitura.nextLine();
 
 		System.out.println("Informe O tipo de conteudo que deseja adicionar");
 		tipoConteudo = leitura.nextLine();	
-
-		novoConteudo = new Conteudo(tipoConteudo, usuario);
+	
+		novoConteudo = new Conteudo(titulo, tipoConteudo, usuario);
 		
 		return novoConteudo;
 	}
@@ -69,8 +82,23 @@ public class Conteudo {
 	}
 
 	private static Conteudo exibirConteudos(ArrayList<Conteudo> conteudos) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		int posicao;
+		Conteudo conteudoEscolhido;
+		
+		System.out.println("Conteúdos");
+		
+		for(Conteudo conteudo:conteudos) {
+			System.out.println(conteudo.getTitulo());
+		}
+		
+		System.out.println("Informe o número do conteudo desejado: ");
+		posicao = Integer.parseInt(leitura.nextLine());
+		
+		conteudoEscolhido = conteudos.get(posicao);
+		
+		return conteudoEscolhido;
+		
 	}
 
 }
