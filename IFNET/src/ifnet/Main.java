@@ -1,7 +1,6 @@
 package ifnet;
 
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -13,8 +12,7 @@ public class Main {
 		ArrayList<Disciplina> disciplinas = new ArrayList<Disciplina>();
 		ArrayList<Conteudo> conteudos = new ArrayList<Conteudo>();
 		ArrayList<Grupo> grupos = new ArrayList<Grupo>();
-		ArrayList<Curso> cursos = new ArrayList<Curso>();
-		Map<String,String> map =new HashMap<String,String>();		
+		ArrayList<Curso> cursos = new ArrayList<Curso>();		
 		Scanner leitura = new Scanner(System.in);
 		
 		Usuario usuarioAtual = null;
@@ -39,8 +37,8 @@ public class Main {
 								entrou = true;
 								sair = false;
 							} else {
-								System.out.println("O e-mail e a senha fornecidos n�o correspondem �s "
-										+ "informa��es em nossos registros. Verifique-as e tente novamente.");
+								System.out.println("O e-mail e a senha fornecidos não correspondem as "
+										+ "informações em nossos registros. Verifique-as e tente novamente.");
 							}
 						}while(usuarioAtual == null);
 						
@@ -52,7 +50,7 @@ public class Main {
 						comecar = sair = false;
 						break;
 					default:
-						System.out.println("Op��o Inv�lida");
+						System.out.println("Opção inválida");
 				}
 			}while(sair);
 			
@@ -89,7 +87,7 @@ public class Main {
 									case "V":
 										voltar = false;
 									default:
-										System.out.println("Op��o inv�lida");
+										System.out.println("Opção inválida");
 								}
 							}while(voltar);
 						
@@ -117,7 +115,7 @@ public class Main {
 										voltar = false;
 										break;
 									default:
-										System.out.println("Op��o inv�lida");
+										System.out.println("Opção inválida");
 								}
 								
 							}while(voltar);
@@ -158,7 +156,7 @@ public class Main {
 										voltar = false;
 										break;
 									default:
-										System.out.println("Op��o inv�lida");
+										System.out.println("Opção inválida");
 								}
 								
 							}while(voltar);
@@ -190,7 +188,7 @@ public class Main {
 										voltar = false;
 										break;
 									default:
-										System.out.println("Op��o inv�lida");
+										System.out.println("Opção inválida");
 										
 								}
 					
@@ -222,7 +220,7 @@ public class Main {
 										voltar = false;
 										break;
 									default:
-										System.out.println("Opção invalida");
+										System.out.println("Opção inválida");
 								}
 								
 							}while(voltar);
@@ -248,7 +246,7 @@ public class Main {
 										voltar = false;
 										break;
 									default:
-										System.out.println("Op��o inv�lida");
+										System.out.println("Opção inválida");
 								}
 								
 							}while(voltar);
@@ -263,7 +261,7 @@ public class Main {
 							entrou = false;
 							break;
 						default:
-							System.out.println("Op��o inv�lida");
+							System.out.println("Opção inválida");
 					}
 				}while(sair);	
 			}

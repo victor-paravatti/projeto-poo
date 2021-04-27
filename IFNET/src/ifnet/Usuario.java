@@ -164,4 +164,15 @@ public abstract class Usuario {
 		return null;
 	}
 	
+	public static ArrayList<Usuario> pesquisaUsuario(ArrayList<Usuario> usuarios, String nome) {
+	
+		ArrayList<Usuario> usuariosPesquisados = new ArrayList<Usuario>();
+		
+		for(Usuario usuario:usuarios) 
+			if(usuario.getNome().toLowerCase().contains(nome.toLowerCase())) 
+				usuariosPesquisados.add(usuario);
+		
+		return usuariosPesquisados;
+	}
+	
 }

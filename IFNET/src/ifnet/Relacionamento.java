@@ -17,7 +17,7 @@ public class Relacionamento {
 		this.criarMapa();
 	}
 
-	public  Usuario getUsuario() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
 	
@@ -36,12 +36,12 @@ public class Relacionamento {
 		return null;
 	}
 	
-	public void alterarGrauConfiabilidade() {
+	public static void alterarGrauConfiabilidade() {
 		
 	}
 
 	//implementar
-	public Object consultarUsuarioMaisRelacionado(ArrayList<Relacionamento> relacionamentos) {
+	public static ArrayList<Usuario> consultarUsuariosMaisRelacionado(ArrayList<Relacionamento> relacionamentos) {
 		return null;
 	}
 }
