@@ -1,10 +1,18 @@
 package ifnet;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Relacionamento {
 	
 	private Usuario usuario;
-	private String grauRelacionamento;
-	private Usuario usuarioRelacionado;
+	Map<Integer,ArrayList<Usuario>> map = new HashMap<Integer,ArrayList<Usuario>>();
+	
+	public Relacionamento(Usuario usuario) {
+		this.usuario = usuario;
+		this.criarMapa();
+	}
 	
 	public Usuario getUsuario() {
 		return usuario;
@@ -14,20 +22,10 @@ public class Relacionamento {
 		this.usuario = usuario;
 	}
 	
-	public String getGrauRelacionamento() {
-		return grauRelacionamento;
-	}
-	
-	public void setGrauRelacionamento(String grauRelacionamento) {
-		this.grauRelacionamento = grauRelacionamento;
-	}
-	
-	public Usuario getUsuarioRelacionado() {
-		return usuarioRelacionado;
-	}
-	
-	public void setUsuarioRelacionado(Usuario usuarioRelacionado) {
-		this.usuarioRelacionado = usuarioRelacionado;
+	public void criarMapa() {
+		this.map.put(1, new ArrayList<Usuario>());
+		this.map.put(2, new ArrayList<Usuario>());
+		this.map.put(3, new ArrayList<Usuario>());
 	}
 	
 	//implementar
