@@ -10,10 +10,9 @@ public class Conteudo {
 
 	static Scanner leitura = new Scanner(System.in);
 	
-	public Conteudo(String nome, String publicador2) {
-		Conteudo conteudo = this;
-		conteudo.tipoConteudo = tipoConteudo;
-		conteudo.publicador = publicador;
+	public Conteudo(String tipoConteudo, Usuario publicador) {
+		this.tipoConteudo = tipoConteudo;
+		this.publicador = publicador;
 	}	
 	
 	public String getTipoConteudo() {
@@ -29,27 +28,49 @@ public class Conteudo {
 		this.publicador = publicador;
 	}
 	
-	public void inseriConteudo(Conteudo novoConteudo) {
+	public static Conteudo inseriConteudo(ArrayList<Conteudo> conteudos, Usuario usuario) {
 		
-		String tipoConteudo, publicador;
-		int opc = 0;
+		Conteudo novoConteudo;
+		String tipoConteudo;
 
-		do {
+		System.out.println("Informe O tipo de conteudo que deseja adicionar");
+		tipoConteudo = leitura.nextLine();	
 
-			System.out.println("Informe O tipo de conteudo que deseja adicionar");
-			tipoConteudo = leitura.nextLine();
-			System.out.println("Informe O publicadorn oqual conteudo pertence");
-			publicador = leitura.nextLine();			
-			opc = Integer.parseInt(leitura.nextLine());
-
-			novoConteudo = new Conteudo(tipoConteudo, publicador);
-
-		}while( opc !=0 );
+		novoConteudo = new Conteudo(tipoConteudo, usuario);
 		
+		return novoConteudo;
 	}
 	
-	public static boolean excluirDiciplina(ArrayList<Conteudo> tipoConteudos, Conteudo tipoConteudo) {	
-		return  tipoConteudos.remove(tipoConteudo);
+	public static void excluirConteudo(ArrayList<Conteudo> conteudos) {
+		
+		Conteudo conteudoExcluir;
+		int opcao;
+		
+		conteudoExcluir = Conteudo.exibirConteudos(conteudos);
+				
+		do {
+			
+			System.out.println("Você tem certeza que deseja excluir o conteudo? "
+					+ "Essa ação não pode ser desfeita\n1.Sim\n2.Não");
+			opcao = Integer.parseInt(leitura.nextLine());
+			
+			switch(opcao) {
+			
+				case 1:
+					conteudos.remove(conteudoExcluir);
+					System.out.println("Conteudo excluído");
+				case 2:
+					System.out.println("Conteudo não excluído");
+					break;
+				default:
+					System.out.println("Opção invàlida");
+			}
+		}while(opcao != 1 && opcao != 2);
+	}
+
+	private static Conteudo exibirConteudos(ArrayList<Conteudo> conteudos) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

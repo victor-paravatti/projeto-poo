@@ -1,17 +1,31 @@
 package ifnet;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+=======
+import java.util.HashMap;
+import java.util.Map;
+>>>>>>> b676dd438aa63009ec7e882e7f35f657a2bf0885
 
 public class Relacionamento {
 	
 	private Usuario usuario;
+<<<<<<< HEAD
 	private String grauRelacionamento;
 	private Usuario usuarioRelacionado;
 
 	static Scanner leitura = new Scanner(System.in);
+=======
+	Map<Integer,ArrayList<Usuario>> map = new HashMap<Integer,ArrayList<Usuario>>();
+	
+	public Relacionamento(Usuario usuario) {
+		this.usuario = usuario;
+		this.criarMapa();
+	}
+>>>>>>> b676dd438aa63009ec7e882e7f35f657a2bf0885
 	
 
 
@@ -48,20 +62,10 @@ public class Relacionamento {
 		this.usuario = usuario;
 	}
 	
-	public String getGrauRelacionamento() {
-		return grauRelacionamento;
-	}
-	
-	public void setGrauRelacionamento(String grauRelacionamento) {
-		this.grauRelacionamento = grauRelacionamento;
-	}
-	
-	public Usuario getUsuarioRelacionado() {
-		return usuarioRelacionado;
-	}
-	
-	public void setUsuarioRelacionado(Usuario usuarioRelacionado) {
-		this.usuarioRelacionado = usuarioRelacionado;
+	public void criarMapa() {
+		this.map.put(1, new ArrayList<Usuario>());
+		this.map.put(2, new ArrayList<Usuario>());
+		this.map.put(3, new ArrayList<Usuario>());
 	}
 	
 	// * Implemanentação para criar uma relação com outro usuario e atribuir as mesmas de forma predefinida

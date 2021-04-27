@@ -213,7 +213,7 @@ public class Main {
 								
 								switch(opcao) {
 									case "1":
-										disciplinas.addAll(Disciplina.cadastrarDisciplina(disciplinas));
+										disciplinas.addAll(Disciplina.cadastrarDisciplina());
 										break;
 									case "2":
 										System.out.println("Disciplina excluida");
