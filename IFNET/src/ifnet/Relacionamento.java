@@ -1,20 +1,58 @@
 package ifnet;
 
 import java.util.ArrayList;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
 import java.util.HashMap;
 import java.util.Map;
-
 public class Relacionamento {
 	
 	private Usuario usuario;
+
+	private String grauRelacionamento;
+	private Usuario usuarioRelacionado;
+
+	static Scanner leitura = new Scanner(System.in);
+
 	Map<Integer,ArrayList<Usuario>> map = new HashMap<Integer,ArrayList<Usuario>>();
 	
 	public Relacionamento(Usuario usuario) {
 		this.usuario = usuario;
 		this.criarMapa();
 	}
+
 	
-	public Usuario getUsuario() {
+
+
+	//iqual e hashCode para o atributo  grauRelacionamento
+	@Override
+	public boolean equals(Object o) {
+		if (o == this)
+			return true;
+		if (!(o instanceof Relacionamento)) {
+			return false;
+		}
+		Relacionamento relacionamento = (Relacionamento) o;
+		return Objects.equals(usuario, relacionamento.usuario) && Objects.equals(grauRelacionamento, relacionamento.grauRelacionamento) && Objects.equals(usuarioRelacionado, relacionamento.usuarioRelacionado);
+	}
+	//hashCode para a implementação do map
+	@Override
+	public int hashCode() {
+		return Objects.hash(usuario, grauRelacionamento, usuarioRelacionado);
+	}	
+
+	
+	
+	public Relacionamento(String grauRelacionamento, Usuario usuario, Usuario usuarioRelacionado) {
+		this.usuario = usuario;
+		this.grauRelacionamento = grauRelacionamento;
+		this.usuarioRelacionado = usuarioRelacionado;
+	}
+
+	public  Usuario getUsuario() {
 		return usuario;
 	}
 	
@@ -28,18 +66,20 @@ public class Relacionamento {
 		this.map.put(3, new ArrayList<Usuario>());
 	}
 	
-	//implementar
-	public void relacionarUsuario() {
+	// * Implemanentação para criar uma relação com outro usuario e atribuir as mesmas de forma predefinida
+	public static Relacionamento criarRelacionamento() {
+
 		
 	}
 	
-	//implementar
-	public void definirGrauConfiabilidade() {
+	
+	public void alterarGrauConfiabilidade() {
 		
 	}
 
 	//implementar
-	public Usuario consultarUsuarioMaisRelacionado() {
+	public Object consultarUsuarioMaisRelacionado(ArrayList<Relacionamento> relacionamentos) {
+		
 		return null;
 	}
 }
