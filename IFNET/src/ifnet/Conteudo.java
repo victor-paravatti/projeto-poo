@@ -1,4 +1,4 @@
-package ifnet;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -11,10 +11,17 @@ public class Conteudo {
 
 	static Scanner leitura = new Scanner(System.in);
 	
+
+	public Conteudo(String nome, String publicador2) {
+		Conteudo conteudo = this;
+		conteudo.tipoConteudo = tipoConteudo;
+		conteudo.publicador = publicador;
+
 	public Conteudo(String titulo, String tipoConteudo, Usuario publicador) {
 		this.titulo = titulo;
 		this.tipoConteudo = tipoConteudo;
 		this.publicador = publicador;
+
 	}	
 	
 	public String getTipoConteudo() {
@@ -30,6 +37,24 @@ public class Conteudo {
 		this.publicador = publicador;
 	}
 	
+
+	public void inseriConteudo(Conteudo novoConteudo) {
+		
+		String tipoConteudo, publicador;
+		int opc = 0;
+
+		do {
+
+			System.out.println("Informe O tipo de conteudo que deseja adicionar");
+			tipoConteudo = leitura.nextLine();
+			System.out.println("Informe O publicadorn oqual conteudo pertence");
+			publicador = leitura.nextLine();			
+			opc = Integer.parseInt(leitura.nextLine());
+
+			novoConteudo = new Conteudo(tipoConteudo, publicador);
+
+		}while( opc !=0 );
+
 	public String getTitulo() {
 		return titulo;
 	}
@@ -43,17 +68,21 @@ public class Conteudo {
 		Conteudo novoConteudo;
 		String tipoConteudo, titulo;
 		
-		System.out.println("Informe o titulo do contéudo");
+		System.out.println("Informe o titulo do contÃ©udo");
 		titulo = leitura.nextLine();
 
 		System.out.println("Informe O tipo de conteudo que deseja adicionar");
 		tipoConteudo = leitura.nextLine();	
 	
 		novoConteudo = new Conteudo(titulo, tipoConteudo, usuario);
+
 		
-		return novoConteudo;
 	}
 	
+
+	public static boolean excluirDiciplina(ArrayList<Conteudo> tipoConteudos, Conteudo tipoConteudo) {	
+		return  tipoConteudos.remove(tipoConteudo);
+
 	public static void excluirConteudo(ArrayList<Conteudo> conteudos) {
 		
 		Conteudo conteudoExcluir;
@@ -63,20 +92,20 @@ public class Conteudo {
 				
 		do {
 			
-			System.out.println("Você tem certeza que deseja excluir o conteudo? "
-					+ "Essa ação não pode ser desfeita\n1.Sim\n2.Não");
+			System.out.println("VocÃª tem certeza que deseja excluir o conteudo? "
+					+ "Essa aÃ§Ã£o nÃ£o pode ser desfeita\n1.Sim\n2.NÃ£o");
 			opcao = Integer.parseInt(leitura.nextLine());
 			
 			switch(opcao) {
 			
 				case 1:
 					conteudos.remove(conteudoExcluir);
-					System.out.println("Conteudo excluído");
+					System.out.println("Conteudo excluÃ­do");
 				case 2:
-					System.out.println("Conteudo não excluído");
+					System.out.println("Conteudo nÃ£o excluÃ­do");
 					break;
 				default:
-					System.out.println("Opção invàlida");
+					System.out.println("OpÃ§Ã£o invÃ lida");
 			}
 		}while(opcao != 1 && opcao != 2);
 	}
@@ -86,19 +115,20 @@ public class Conteudo {
 		int posicao;
 		Conteudo conteudoEscolhido;
 		
-		System.out.println("Conteúdos");
+		System.out.println("ConteÃºdos");
 		
 		for(Conteudo conteudo:conteudos) {
 			System.out.println(conteudo.getTitulo());
 		}
 		
-		System.out.println("Informe o número do conteudo desejado: ");
+		System.out.println("Informe o nÃºmero do conteudo desejado: ");
 		posicao = Integer.parseInt(leitura.nextLine());
 		
 		conteudoEscolhido = conteudos.get(posicao);
 		
 		return conteudoEscolhido;
 		
+
 	}
 
 }

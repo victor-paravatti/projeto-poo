@@ -1,4 +1,4 @@
-package ifnet;
+
 
 import java.util.Scanner;
 

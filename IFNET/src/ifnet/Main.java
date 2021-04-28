@@ -1,4 +1,4 @@
-package ifnet;
+
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -14,7 +14,9 @@ public class Main {
 		ArrayList<Conteudo> conteudos = new ArrayList<Conteudo>();
 		ArrayList<Grupo> grupos = new ArrayList<Grupo>();
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
+
 		Map<String,String> map =new HashMap<String,String>();		
+
 		Scanner leitura = new Scanner(System.in);
 		
 		Usuario usuarioAtual = null;
@@ -213,7 +215,7 @@ public class Main {
 								
 								switch(opcao) {
 									case "1":
-										disciplinas.addAll(Disciplina.cadastrarDisciplina(disciplinas));
+										disciplinas.addAll(Disciplina.cadastrarDisciplina());
 										break;
 									case "2":
 										System.out.println("Disciplina excluida");
