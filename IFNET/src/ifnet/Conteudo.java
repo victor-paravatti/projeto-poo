@@ -16,6 +16,7 @@ public class Conteudo {
 		Conteudo conteudo = this;
 		conteudo.tipoConteudo = tipoConteudo;
 		conteudo.publicador = publicador;
+	}
 
 	public Conteudo(String titulo, String tipoConteudo, Usuario publicador) {
 		this.titulo = titulo;
@@ -54,7 +55,7 @@ public class Conteudo {
 			novoConteudo = new Conteudo(tipoConteudo, publicador);
 
 		}while( opc !=0 );
-
+	}
 	public String getTitulo() {
 		return titulo;
 	}
@@ -75,13 +76,14 @@ public class Conteudo {
 		tipoConteudo = leitura.nextLine();	
 	
 		novoConteudo = new Conteudo(titulo, tipoConteudo, usuario);
-
+		return novoConteudo;
 		
 	}
 	
 
 	public static boolean excluirDiciplina(ArrayList<Conteudo> tipoConteudos, Conteudo tipoConteudo) {	
 		return  tipoConteudos.remove(tipoConteudo);
+	}
 
 	public static void excluirConteudo(ArrayList<Conteudo> conteudos) {
 		

@@ -15,7 +15,7 @@ public class Main {
 		ArrayList<Grupo> grupos = new ArrayList<Grupo>();
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
 
-		Map<String,String> map =new HashMap<String,String>();		
+			
 
 		Scanner leitura = new Scanner(System.in);
 		
