@@ -1,13 +1,9 @@
 package ifnet;
 
-import java.util.Scanner;
-
 public class Aluno extends Usuario{
 	
 	private String email;
 	private Curso curso;
-	
-	Scanner leitura = new Scanner(System.in);
 	
 	public Aluno(String nome, String prontuario, String senha, String email, Curso curso) {
 		super(nome, prontuario, senha);

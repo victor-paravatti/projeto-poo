@@ -1,14 +1,9 @@
 package ifnet;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Professor extends Usuario{
 	
 	private Area area;
 	private Disciplina disciplMinistrada;
-	
-	Scanner leitura = new Scanner(System.in);
 	
 	public Professor(String nome, String prontuario, String senha, Area area, Disciplina disciplMinistrada) {
 		super(nome, prontuario, senha);
@@ -27,9 +22,15 @@ public class Professor extends Usuario{
 	public Disciplina getDiciplMinistrada() {
 		return disciplMinistrada;
 	}
-	
-	public void setDiciplMinistrada(ArrayList<Disciplina> disciplinas) {
-		this.disciplMinistrada = Disciplina.exibirDisciplinas(disciplinas);
+
+	public Disciplina getDisciplMinistrada() {
+		return disciplMinistrada;
 	}
+
+	public void setDisciplMinistrada(Disciplina disciplMinistrada) {
+		this.disciplMinistrada = disciplMinistrada;
+	}
+	
+	
 
 }

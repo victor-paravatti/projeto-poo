@@ -1,22 +1,18 @@
 package ifnet;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
 
-public class Grupo implements Comparable<Object>{
+public class Grupo {
 	
 	private String nome;
 	private Disciplina disciplina;
 	private ArrayList<Usuario> usuariosGrupo = new ArrayList<Usuario>();
 	private Usuario criador;
 	private String tipo;
-	
-	static Scanner leitura = new Scanner(System.in);
-	
-	public Grupo(String nome, ArrayList<Disciplina> disciplinas, Usuario usuarioAtual, String tipo) {
+		
+	public Grupo(String nome, Disciplina disciplina, Usuario usuarioAtual, String tipo) {
 		this.nome = nome;
-		this.setDisciplina(disciplinas);
+		this.disciplina = disciplina;
 		this.criador = usuarioAtual;
 		this.tipo = tipo;
 	}
@@ -33,8 +29,8 @@ public class Grupo implements Comparable<Object>{
 		return disciplina;
 	}
 	
-	public void setDisciplina(ArrayList<Disciplina> disciplinas) {
-		this.disciplina = Disciplina.exibirDisciplinas(disciplinas);
+	public void setDisciplina(Disciplina disciplina) {
+		this.disciplina = disciplina;
 	}
 	
 	public ArrayList<Usuario> getUsuariosGrupo() {
@@ -61,132 +57,47 @@ public class Grupo implements Comparable<Object>{
 		this.tipo = tipo;
 	}
 	
-	public static Grupo criarGrupo(ArrayList<Disciplina> disciplinas, Usuario usuarioAtual) {
+	public static ArrayList<Grupo> consultarGrupoMaisUsuarios(ArrayList<Grupo> grupos) {
 		
-		String nome, tipo;
+		ArrayList<Grupo> gruposAlt = new ArrayList<Grupo>();
 		
-		System.out.println("Criar Grupo");
+		int priPo, segPo;
 		
-		System.out.println("Informe o nome do grupo: ");
-		nome = leitura.nextLine();
-		
-		System.out.println("Tipo do grupo\n1. Pesquisa\n2. Trabalho");
-		tipo = leitura.nextLine();
-		
-		System.out.println("Grupo criado!");
-		
-		Grupo novoGrupo = new Grupo(nome, disciplinas, usuarioAtual, tipo);
-		
-		return novoGrupo;
-		
-	}
-	
-	public static void excluirGrupo(ArrayList<Grupo> grupos, Usuario usuario) {
-		
-		Grupo grupoExcluir;
-		int opcao = 0;
-		
-		grupoExcluir = Grupo.exibirGrupos(grupos);
-		
-		do {
-			
-			System.out.println("Você tem certeza que deseja excluir o grupo? "
-					+ "Essa ação não pode ser desfeita\n1.Sim\n2.Não");
-			opcao = Integer.parseInt(leitura.nextLine());
-			
-			switch(opcao) {
-			
-				case 1:
-					if(grupoExcluir.getCriador() == usuario) {
-						grupos.remove(grupoExcluir);
-						System.out.println("Grupo excluído");
-					} else System.out.println("Você não tem permissão para excluir esse grupo,"
-							+ "somente o criador do grupo pode excluí-lo");
-				case 2:
-					System.out.println("Curso não excluído");
-					break;
-				default:
-					System.out.println("Opção invàlida");
-			}
-		}while(opcao != 1 && opcao != 2);
-	}
-	
-	public static void consultarGrupoMaisUsuarios(ArrayList<Grupo> grupos) {
-		
-		System.out.println("TOP 10 - Grupo com com mais usuários");
-		
-		Collections.sort(grupos);
-		
-		for(int posicao = 0; posicao < 10; posicao ++) {
-			System.out.println(posicao + 1 + ". " + grupos.get(posicao).getNome());
-		};
-		
-	}
-	
-	public static void consultarGpPesquisaPorDisciplina(ArrayList<Grupo> grupos, ArrayList<Disciplina> disciplinas, Usuario usuario) {
-		
-		int opcao, encontrado = 0;
-		
-		Disciplina disciplina;
-		
-		System.out.println("Consultar Grupo de Pesquisa por Disciplina");
-		
-		disciplina = Disciplina.exibirDisciplinas(disciplinas);
-		
-		for(Grupo grupo:grupos) {
-			
-			if(grupo.getDisciplina().equals(disciplina)) {
-				System.out.println(grupos.indexOf(grupo) + ". " + grupo.getNome());
-			};
-		
-		}
-		
-		if(encontrado == 0) System.out.println("Não existe nenhum grupo com a disciplina escolhida");
-		else {
-			System.out.println("Informe o número do grupo que deseja participar. Se não deseja participar de nenhum grupo, digite -1");
-			opcao = Integer.parseInt(leitura.nextLine());
-			
-			if(opcao != -1) {
-				
-				grupos.get(opcao).setUsuariosGrupo(usuario);
-				System.out.println("Você está no grupo " + grupos.get(opcao).getNome());
-				
+		for(priPo = 0; priPo < grupos.size(); priPo++ ) {
+			for(segPo = 0; segPo < grupos.size(); segPo++) {
+				if(grupos.get(priPo).getUsuariosGrupo().size() < grupos.get(segPo).getUsuariosGrupo().size()) {
+					gruposAlt.add(priPo, grupos.get(segPo));
+					gruposAlt.add(segPo, grupos.get(priPo));
+				};
 			}
 		}
+		
+		return gruposAlt;
 	}
 	
-	public static Grupo exibirGrupos(ArrayList<Grupo> grupos) {
+	public static ArrayList<Grupo> consultarGpPesquisaPorDisciplina(ArrayList<Grupo> grupos, Disciplina disciplina) {
 		
-		int posicao;
-		Grupo grupoEscolhido;
-		
-		System.out.println("Grupos");
+		ArrayList<Grupo> gruposPesquisados = new ArrayList<Grupo>();
 		
 		for(Grupo grupo:grupos) {
-			posicao = grupos.indexOf(grupo);
-			System.out.println(posicao + ": " + grupo.getNome());
+			if(grupo.getDisciplina().getNome().equals(grupo.getDisciplina().getNome()) && grupo.getTipo().equals("Pesquisa")) 
+				gruposPesquisados.add(grupo);
 		}
 		
-		System.out.println("Informe o número da grupo desejado: ");
-		posicao = Integer.parseInt(leitura.nextLine());
+		return gruposPesquisados;
+	}
+	
+	public static ArrayList<Grupo> pesquisarGrupos(ArrayList<Grupo> grupos, String nome) {
 		
-		grupoEscolhido = grupos.get(posicao);
+		ArrayList<Grupo> gruposPesquisados = new ArrayList<Grupo>();
 		
-		return grupoEscolhido;
+		for(Grupo grupo:grupos) 
+			if(grupo.getNome().toLowerCase().contains(nome.toLowerCase())) 
+				gruposPesquisados.add(grupo);
+		
+		return gruposPesquisados;
 		
 	}
-
-	@Override
-	public int compareTo(Object arg0) {
-		
-		int valor = 0;
-		
-		if(getUsuariosGrupo().size() == ((Grupo) arg0).getUsuariosGrupo().size()) valor = 0;
-		if(getUsuariosGrupo().size() < ((Grupo) arg0).getUsuariosGrupo().size()) valor = -1;
-		if(getUsuariosGrupo().size() > ((Grupo) arg0).getUsuariosGrupo().size()) valor = 1;
-		
-		return valor;
-
-	}
+	
 
 }
