@@ -1,4 +1,4 @@
-package ifnet;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -59,8 +59,8 @@ public abstract class Usuario {
 	}
 	
 	/*
-	realiza o cadastro do usuário, a partir do inserção das 
-	informações do usuário, dependendo do tipo do usuário
+	realiza o cadastro do usuï¿½rio, a partir do inserï¿½ï¿½o das 
+	informaï¿½ï¿½es do usuï¿½rio, dependendo do tipo do usuï¿½rio
 	*/
 	public static Usuario cadastrarUsuario() {
 		
@@ -69,14 +69,14 @@ public abstract class Usuario {
 		int tipo = 0;
 		
 		do {
-			System.out.println("Você é Aluno ou Professor?\n1 - Aluno\n2 - Professor");
+			System.out.println("Vocï¿½ ï¿½ Aluno ou Professor?\n1 - Aluno\n2 - Professor");
 			tipo = Integer.parseInt(leitura.nextLine());
 		} while(tipo != 1 && tipo != 2);
 		
 		System.out.print("Informe o nome: ");
 		nome = leitura.nextLine();
 		
-		System.out.print("Informe o prontuário: ");
+		System.out.print("Informe o prontuï¿½rio: ");
 		prontuario = leitura.nextLine();
 		
 		System.out.print("Informe a senha: ");
@@ -84,7 +84,7 @@ public abstract class Usuario {
 		
 		if(tipo == 2) {
 			
-			System.out.print("Informe a área: ");
+			System.out.print("Informe a ï¿½rea: ");
 			area = leitura.nextLine();
 			
 			System.out.print("Informe a disciplina: ");
@@ -108,7 +108,7 @@ public abstract class Usuario {
 		return novoUsuario;
 	}
 	
-	//excluir o usuário a partir do recebimento do array de usuários e o usuário a ser excluido
+	//excluir o usuï¿½rio a partir do recebimento do array de usuï¿½rios e o usuï¿½rio a ser excluido
 	public static boolean excluirUsuario(ArrayList<Usuario> usuarios, Usuario usuario) {
 		
 		boolean excluido = false;
@@ -116,8 +116,8 @@ public abstract class Usuario {
 		
 		do {
 			
-			System.out.println("Você tem certeza que deseja excluir a sua conta? "
-					+ "Essa ação não pode ser desfeita\n1.Sim\n2.Não");
+			System.out.println("Vocï¿½ tem certeza que deseja excluir a sua conta? "
+					+ "Essa aï¿½ï¿½o nï¿½o pode ser desfeita\n1.Sim\n2.Nï¿½o");
 			opcao = Integer.parseInt(leitura.nextLine());
 			
 			switch(opcao) {
@@ -125,13 +125,13 @@ public abstract class Usuario {
 				case 1:
 					usuarios.remove(usuario);
 					excluido = true;
-					System.out.println("Conta excluída");
+					System.out.println("Conta excluï¿½da");
 				case 2:
 					excluido = false;
-					System.out.println("Conta não excluída");
+					System.out.println("Conta nï¿½o excluï¿½da");
 					break;
 				default:
-					System.out.println("Opção invàlida");
+					System.out.println("Opï¿½ï¿½o invï¿½lida");
 			}
 			
 		}while(opcao != 1 && opcao != 2);
@@ -140,12 +140,12 @@ public abstract class Usuario {
 		
 	}
 	
-	//faz o login do usuário, recebendo o array de usuários
+	//faz o login do usuï¿½rio, recebendo o array de usuï¿½rios
 	public static Usuario loginUsuario(ArrayList<Usuario> usuarios) {
 		
 		String prontuario, senha;
 		
-		//recebe o prontuário
+		//recebe o prontuï¿½rio
 		System.out.print("Informe o prontuario: ");
 		prontuario = leitura.nextLine();
 		
@@ -153,7 +153,7 @@ public abstract class Usuario {
 		System.out.print("Informe a senha: ");
 		senha = leitura.nextLine();
 		
-		//verifica se o prontuario e a senha constam no cadastro de algum usuário
+		//verifica se o prontuario e a senha constam no cadastro de algum usuï¿½rio
 		for(Usuario usuario: usuarios) {
 			if(usuario.getProntuario().equals(prontuario)) {
 				if(usuario.getSenha().equals(senha)) {

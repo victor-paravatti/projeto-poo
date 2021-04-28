@@ -1,4 +1,4 @@
-package ifnet;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -90,8 +90,8 @@ public class Grupo implements Comparable<Object>{
 		
 		do {
 			
-			System.out.println("Você tem certeza que deseja excluir o grupo? "
-					+ "Essa ação não pode ser desfeita\n1.Sim\n2.Não");
+			System.out.println("Vocï¿½ tem certeza que deseja excluir o grupo? "
+					+ "Essa aï¿½ï¿½o nï¿½o pode ser desfeita\n1.Sim\n2.Nï¿½o");
 			opcao = Integer.parseInt(leitura.nextLine());
 			
 			switch(opcao) {
@@ -99,21 +99,21 @@ public class Grupo implements Comparable<Object>{
 				case 1:
 					if(grupoExcluir.getCriador() == usuario) {
 						grupos.remove(grupoExcluir);
-						System.out.println("Grupo excluído");
-					} else System.out.println("Você não tem permissão para excluir esse grupo,"
-							+ "somente o criador do grupo pode excluí-lo");
+						System.out.println("Grupo excluï¿½do");
+					} else System.out.println("Vocï¿½ nï¿½o tem permissï¿½o para excluir esse grupo,"
+							+ "somente o criador do grupo pode excluï¿½-lo");
 				case 2:
-					System.out.println("Curso não excluído");
+					System.out.println("Curso nï¿½o excluï¿½do");
 					break;
 				default:
-					System.out.println("Opção invàlida");
+					System.out.println("Opï¿½ï¿½o invï¿½lida");
 			}
 		}while(opcao != 1 && opcao != 2);
 	}
 	
 	public static void consultarGrupoMaisUsuarios(ArrayList<Grupo> grupos) {
 		
-		System.out.println("TOP 10 - Grupo com com mais usuários");
+		System.out.println("TOP 10 - Grupo com com mais usuï¿½rios");
 		
 		Collections.sort(grupos);
 		
@@ -141,15 +141,15 @@ public class Grupo implements Comparable<Object>{
 		
 		}
 		
-		if(encontrado == 0) System.out.println("Não existe nenhum grupo com a disciplina escolhida");
+		if(encontrado == 0) System.out.println("Nï¿½o existe nenhum grupo com a disciplina escolhida");
 		else {
-			System.out.println("Informe o número do grupo que deseja participar. Se não deseja participar de nenhum grupo, digite -1");
+			System.out.println("Informe o nï¿½mero do grupo que deseja participar. Se nï¿½o deseja participar de nenhum grupo, digite -1");
 			opcao = Integer.parseInt(leitura.nextLine());
 			
 			if(opcao != -1) {
 				
 				grupos.get(opcao).setUsuariosGrupo(usuario);
-				System.out.println("Você está no grupo " + grupos.get(opcao).getNome());
+				System.out.println("Vocï¿½ estï¿½ no grupo " + grupos.get(opcao).getNome());
 				
 			}
 		}
@@ -167,7 +167,7 @@ public class Grupo implements Comparable<Object>{
 			System.out.println(posicao + ": " + grupo.getNome());
 		}
 		
-		System.out.println("Informe o número da grupo desejado: ");
+		System.out.println("Informe o nï¿½mero da grupo desejado: ");
 		posicao = Integer.parseInt(leitura.nextLine());
 		
 		grupoEscolhido = grupos.get(posicao);

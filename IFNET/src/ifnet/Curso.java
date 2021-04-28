@@ -1,4 +1,4 @@
-package ifnet;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -55,7 +55,7 @@ public class Curso {
 			System.out.println("Informe o semetre da disciplina");
 			semestre = Integer.parseInt(leitura.nextLine());
 			
-			System.out.println("Deseja cadastrar outra disciplina no curso?\n1. Sim\n2. Não");
+			System.out.println("Deseja cadastrar outra disciplina no curso?\n1. Sim\n2. Nï¿½o");
 			opcao = Integer.parseInt(leitura.nextLine());
 			
 			this.disciplinasPorSemestre.put(semestre, disciplinaEscolhida);
@@ -80,10 +80,10 @@ public class Curso {
 			System.out.println("Informe a quantidade de semestres do curso: ");
 			semestres = Integer.parseInt(leitura.next());
 			
-			System.out.println("Deseja cadastrar outro curso?\n1.Sim\n2.Não");
+			System.out.println("Deseja cadastrar outro curso?\n1.Sim\n2.Nï¿½o");
 			opcao = Integer.parseInt(leitura.next());
 			
-			if(opcao !=1 && opcao != 2) System.out.println("Opção inválida");
+			if(opcao !=1 && opcao != 2) System.out.println("Opï¿½ï¿½o invï¿½lida");
 		
 			novosCursos.add(new Curso(nome, semestres, disciplinas));
 			
@@ -103,20 +103,20 @@ public class Curso {
 				
 		do {
 			
-			System.out.println("Você tem certeza que deseja excluir o curso? "
-					+ "Essa ação não pode ser desfeita\n1.Sim\n2.Não");
+			System.out.println("Vocï¿½ tem certeza que deseja excluir o curso? "
+					+ "Essa aï¿½ï¿½o nï¿½o pode ser desfeita\n1.Sim\n2.Nï¿½o");
 			opcao = Integer.parseInt(leitura.nextLine());
 			
 			switch(opcao) {
 			
 				case 1:
 					cursos.remove(cursoExcluir);
-					System.out.println("Curso excluído");
+					System.out.println("Curso excluï¿½do");
 				case 2:
-					System.out.println("Curso não excluído");
+					System.out.println("Curso nï¿½o excluï¿½do");
 					break;
 				default:
-					System.out.println("Opção invàlida");
+					System.out.println("Opï¿½ï¿½o invï¿½lida");
 			}
 		}while(opcao != 1 && opcao != 2);
 	}
@@ -133,7 +133,7 @@ public class Curso {
 			System.out.println(posicao + ": " + curso.getNome());
 		}
 		
-		System.out.println("Informe o número da grupo desejado: ");
+		System.out.println("Informe o nï¿½mero da grupo desejado: ");
 		posicao = Integer.parseInt(leitura.nextLine());
 		
 		cursoEscolhido = cursos.get(posicao);
