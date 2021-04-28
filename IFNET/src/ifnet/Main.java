@@ -1,6 +1,7 @@
 
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -13,7 +14,9 @@ public class Main {
 		ArrayList<Conteudo> conteudos = new ArrayList<Conteudo>();
 		ArrayList<Grupo> grupos = new ArrayList<Grupo>();
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
-				
+
+		Map<String,String> map =new HashMap<String,String>();		
+
 		Scanner leitura = new Scanner(System.in);
 		
 		Usuario usuarioAtual = null;
