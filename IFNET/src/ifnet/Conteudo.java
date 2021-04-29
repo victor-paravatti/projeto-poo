@@ -123,7 +123,7 @@ public class Conteudo {
 			System.out.println(conteudo.getTitulo());
 		}
 		
-		System.out.println("Informe o número do conteudo desejado: ");
+		System.out.println("Informe o número d conteudo desejado: ");
 		posicao = Integer.parseInt(leitura.nextLine());
 		
 		conteudoEscolhido = conteudos.get(posicao);
