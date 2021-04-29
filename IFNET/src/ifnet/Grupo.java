@@ -57,22 +57,21 @@ public class Grupo {
 		this.tipo = tipo;
 	}
 	
-	public static ArrayList<Grupo> consultarGrupoMaisUsuarios(ArrayList<Grupo> grupos) {
+	public static void consultarGrupoMaisUsuarios(ArrayList<Grupo> grupos) {
 		
-		ArrayList<Grupo> gruposAlt = new ArrayList<Grupo>();
+		Grupo grupoAlt ;
 		
 		int priPo, segPo;
 		
 		for(priPo = 0; priPo < grupos.size(); priPo++ ) {
 			for(segPo = 0; segPo < grupos.size(); segPo++) {
 				if(grupos.get(priPo).getUsuariosGrupo().size() < grupos.get(segPo).getUsuariosGrupo().size()) {
-					gruposAlt.add(priPo, grupos.get(segPo));
-					gruposAlt.add(segPo, grupos.get(priPo));
+					grupoAlt = grupos.get(priPo);
+					grupos.add(priPo, grupos.get(segPo));
+					grupos.add(segPo, grupoAlt);
 				};
 			}
 		}
-		
-		return gruposAlt;
 	}
 	
 	public static ArrayList<Grupo> consultarGpPesquisaPorDisciplina(ArrayList<Grupo> grupos, Disciplina disciplina) {

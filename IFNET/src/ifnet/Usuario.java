@@ -63,4 +63,13 @@ public abstract class Usuario {
 		return usuariosPesquisados;
 	}
 	
+	@Override public boolean equals(Object usuario) {
+		
+		if(this.nome == ((Usuario) usuario).getNome())
+			if(this.prontuario == ((Usuario) usuario).getProntuario())
+				return true;
+		return false;
+		
+	}
+	
 }

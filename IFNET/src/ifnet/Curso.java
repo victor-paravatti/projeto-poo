@@ -14,10 +14,10 @@ public class Curso {
 		this.nome = nome;
 	}
 	
-	public Curso(String nome, int semestres, int semestre, Disciplina disciplina) {
+	public Curso(String nome, int semestres, Map<Integer, Disciplina> disciplinas) {
 		this.nome = nome;
 		this.semestres = semestres;
-		this.disciplinasPorSemestre.put(semestre, disciplina);
+		this.disciplinasPorSemestre.putAll(disciplinas);
 	} 
 	
 	public String getNome() {
@@ -40,8 +40,8 @@ public class Curso {
 		return disciplinasPorSemestre;
 	}
 	
-	public void setDisciplinasPorSemestre(Map<Integer, Disciplina> disciplinasPorSemestre) {
-		this.disciplinasPorSemestre = disciplinasPorSemestre;
+	public void setDisciplinasPorSemestre(Disciplina disciplina, int semestre) {
+		this.disciplinasPorSemestre.put(semestre, disciplina);
 	}
 
 	public static ArrayList<Curso> pesquisaCurso(ArrayList<Curso> cursos, String nome) {
