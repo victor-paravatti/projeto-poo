@@ -45,7 +45,6 @@ public class Main {
 										+ "informa��es em nossos registros. Verifique-as e tente novamente.");
 							}
 						}while(usuarioAtual == null);
-						
 						break;
 					case "2":
 						usuarios.add(Usuario.cadastrarUsuario());

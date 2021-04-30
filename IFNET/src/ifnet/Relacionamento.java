@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
+
+
 
 
 
@@ -15,6 +16,7 @@ public class Relacionamento {
 	static Scanner leitura = new Scanner(System.in);
 	
 	private Usuario usuario;
+
 	Map<Integer,ArrayList<Usuario>> map = new HashMap<Integer,ArrayList<Usuario>>();
 	
 	public Relacionamento(Usuario usuario) {
@@ -22,7 +24,7 @@ public class Relacionamento {
 		this.criarMapa();
 	}
 	
-	public Usuario getUsuario() {
+	public Usuario getUsuario(String nome) {
 		return usuario;
 	}
 	
@@ -52,8 +54,8 @@ public class Relacionamento {
 		 	grau = Integer.parseInt(leitura.nextLine());
 			System.out.println(" Informe o Nome da Pesosa no qual deseja criar vinculo");
 			nome = leitura.nextLine();
-			/*usuario = getUsuario(nome);*/			
-			/*map.get(grau).add(usuario);*/
+			usuario = getUsuario(nome);		
+			map.get(grau).add(usuario);
 			System.out.println(" Se desejar sair Aperte {1}");
 			opc = Integer.parseInt(leitura.nextLine());
 
@@ -63,37 +65,45 @@ public class Relacionamento {
 	
 	//implementar
 	public void definirGrauConfiabilidade(Map<Integer,ArrayList<Usuario>> map) {
-		Usuario usuario;
+		Usuario usuario = null;
 		String nome;
+		
 		int opc = 0, grau;
 		
 		
 		do {
 			//iteração para mostrar o conteudo do mapa 
-			for(Map.Entry<Integer, ArrayList<Usuario>> entry : map.entrySet()){  
+			for(Map.Entry<Integer, ArrayList<Usuario>> entry : map.entrySet()){ 
 				
-				// Print para mopstrar a chave e o valor relacionado a chave 
+				// Print para mostrar a chave e o valor relacionado a chave 
 				System.out.println(entry.getKey() + "" + entry.getValue());	
 				System.out.println("Digite o Grau de relacionamento no qual  a pessoa que deseja trocar está");
 				grau = Integer.parseInt(leitura.nextLine());
+
+				// Implementação daleitura e subistuição fo grau de relacionamento do usuario
 				if(map.containsKey(grau)){
 					System.out.println("Digite o nome da pesoa no qual deseja trocar de Grau de relacionamento");
 					nome = leitura.nextLine();
-					/*if(map.containsValue(nome)){
 
-					}*/
-										
-
+					ArrayList<Usuario> usuarios = entry.getValue();
+					Usuario.pesquisaUsuario(usuarios, nome);
+					for(Usuario usuariosGrupo : usuarios){
+						if(usuariosGrupo.getNome().equals(nome)){
+							if(map.containsValue(usuariosGrupo)){
+								usuario = usuariosGrupo;
+								map.get(grau).remove(usuariosGrupo);
+								break;
+							}								
+						}
+					}										
 				}
-
-
-				
-				
+				System.out.println("Digite o Grau de relacionamento no qual  a pessoa que deseja trocar ir´s ficar");
+				grau = Integer.parseInt(leitura.nextLine());
+				if(map.containsKey(grau)){
+					map.get(grau).add(usuario);
+				}						
 			}
-
-		}while(opc != 0);
-
-		
+		}while(opc != 0);	
 	}
 
 	//implementar
