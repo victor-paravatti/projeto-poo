@@ -15,7 +15,7 @@ public class Main {
 		ArrayList<Grupo> grupos = new ArrayList<Grupo>();
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
 
-		Map<String,String> map =new HashMap<String,String>();		
+			
 
 		Scanner leitura = new Scanner(System.in);
 		
@@ -45,7 +45,6 @@ public class Main {
 										+ "informa��es em nossos registros. Verifique-as e tente novamente.");
 							}
 						}while(usuarioAtual == null);
-						
 						break;
 					case "2":
 						usuarios.add(Usuario.cadastrarUsuario());

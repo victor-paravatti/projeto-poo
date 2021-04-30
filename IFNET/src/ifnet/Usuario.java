@@ -6,11 +6,19 @@ import java.util.Scanner;
 public abstract class Usuario {
 	
 	private String nome;
+
+
 	private String prontuario;
-	private String senha;
-	
+	private String senha;	
 	static Scanner leitura = new Scanner(System.in);
-	
+
+
+		@Override
+	public String toString() {
+		return "{" +
+			" nome='" + getNome() + "'" +
+			"}";
+	}
 	public Usuario(String nome, String prontuario, String senha) {
 		this.nome = nome;
 		this.prontuario = prontuario;
@@ -162,6 +170,16 @@ public abstract class Usuario {
 			}		
 		}
 		return null;
+	}
+	public static ArrayList<Usuario> pesquisaUsuario(ArrayList<Usuario> usuarios, String nome) {
+
+		ArrayList<Usuario> usuariosPesquisados = new ArrayList<Usuario>();
+	
+		for(Usuario usuario:usuarios) 
+			if(usuario.getNome().toLowerCase().contains(nome.toLowerCase())) 
+				usuariosPesquisados.add(usuario);
+	
+		return usuariosPesquisados;
 	}
 	
 }
