@@ -8,16 +8,16 @@ public class Curso {
 	
 	private String nome;
 	private int semestres;
-	private Map<Integer, Disciplina> disciplinasPorSemestre = new HashMap<Integer, Disciplina>();
+	private Map<Integer, ArrayList<Disciplina>> disciplinasPorSemestre = new HashMap<Integer, ArrayList<Disciplina>>();
 
 	public Curso(String nome) {
 		this.nome = nome;
 	}
 	
-	public Curso(String nome, int semestres, Map<Integer, Disciplina> disciplinas) {
+	public Curso(String nome, int semestres) {
 		this.nome = nome;
 		this.semestres = semestres;
-		this.disciplinasPorSemestre.putAll(disciplinas);
+		criarMapa(semestres);
 	} 
 	
 	public String getNome() {
@@ -35,13 +35,19 @@ public class Curso {
 	public void setSemestres(int semestres) {
 		this.semestres = semestres;
 	}
-
-	public Map<Integer, Disciplina> getDisciplinasPorSemestre() {
+	
+	public Map<Integer, ArrayList<Disciplina>> getDisciplinasPorSemestre() {
 		return disciplinasPorSemestre;
 	}
+
+	public void setDisciplinasPorSemestre(int semestre, Disciplina disciplina) {
+		this.disciplinasPorSemestre.get(semestre).add(disciplina);
+	}
 	
-	public void setDisciplinasPorSemestre(Disciplina disciplina, int semestre) {
-		this.disciplinasPorSemestre.put(semestre, disciplina);
+	public void criarMapa(int semestres) {
+		for(int semestre = 1; semestre <= semestres; semestre++) {
+			this.disciplinasPorSemestre.put(semestre, new ArrayList<Disciplina>());
+		}
 	}
 
 	public static ArrayList<Curso> pesquisaCurso(ArrayList<Curso> cursos, String nome) {
@@ -55,5 +61,5 @@ public class Curso {
 		
 		return cursosPesquisados;
 	}
-	
+
 }

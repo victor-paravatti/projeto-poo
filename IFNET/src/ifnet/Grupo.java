@@ -79,7 +79,7 @@ public class Grupo {
 		ArrayList<Grupo> gruposPesquisados = new ArrayList<Grupo>();
 		
 		for(Grupo grupo:grupos) {
-			if(grupo.getDisciplina().getNome().equals(grupo.getDisciplina().getNome()) && grupo.getTipo().equals("Pesquisa")) 
+			if(grupo.getDisciplina().getNome().contains(disciplina.getNome()) && grupo.getTipo().equals("Pesquisa")) 
 				gruposPesquisados.add(grupo);
 		}
 		
