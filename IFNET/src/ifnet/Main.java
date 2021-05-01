@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 import excecoes.OpcaoInexistenteException;
+import excecoes.UsuarioCadastradoException;
 
 public class Main {
 
@@ -48,7 +49,7 @@ public class Main {
 		Area areaCadastro;
 		Usuario usuarioAtual = null;
 		boolean comecar = true, sair = true, voltar = true, entrou = false, prosseguir = false, cadastro = false;
-		String opcao = "", prontuario, senha, nome, tipo, titulo;	
+		String opcao = "", prontuario = "", senha, nome, tipo, titulo;	
 		int posicao = -1, semestre, semestres;
 	
 		while(comecar) {
@@ -67,7 +68,7 @@ public class Main {
 							
 							//recebe o prontuário
 							System.out.print("Informe o prontuario: ");
-							prontuario = leitura.nextLine();
+							prontuario = leitura.nextLine().toUpperCase();
 							
 							//recebe a senha
 							System.out.print("Informe a senha: ");
@@ -88,12 +89,23 @@ public class Main {
 						
 						System.out.println("Cadastre-se");
 						
+						try {
+							
+							System.out.print("Informe o prontuário: ");
+							prontuario = leitura.nextLine().toUpperCase();
+							
+							if(Usuario.usuarioExistente(usuarios, prontuario)) {
+								throw new UsuarioCadastradoException();
+							}
+							
+						} catch (UsuarioCadastradoException excecao) {
+							System.out.println(excecao.getMessage());
+							break;
+						} 
+						
 						System.out.print("Informe o nome: ");
 						nome = leitura.nextLine();
-						
-						System.out.print("Informe o prontuário: ");
-						prontuario = leitura.nextLine();
-						
+							
 						System.out.print("Informe a senha: ");
 						senha = leitura.nextLine();
 						

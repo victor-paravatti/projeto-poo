@@ -63,6 +63,16 @@ public abstract class Usuario {
 		return usuariosPesquisados;
 	}
 	
+	public static boolean usuarioExistente(ArrayList<Usuario> usuarios, String prontuario) {
+		
+		for(Usuario usuario:usuarios) {
+			if(usuario.getProntuario().equals(prontuario)) return true;
+		}
+		
+		return false;
+		
+	}
+	
 	@Override public boolean equals(Object usuario) {
 		
 		if(this.nome == ((Usuario) usuario).getNome())
@@ -71,5 +81,6 @@ public abstract class Usuario {
 		return false;
 		
 	}
+	
 	
 }
