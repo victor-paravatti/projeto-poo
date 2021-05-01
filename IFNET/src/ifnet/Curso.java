@@ -62,4 +62,12 @@ public class Curso {
 		return cursosPesquisados;
 	}
 
+	@Override
+	public String toString() {
+		return "Nome: " + this.nome + 
+				"Quantidade de Semestres: " + this.semestres;
+	}
+	
+	
+
 }

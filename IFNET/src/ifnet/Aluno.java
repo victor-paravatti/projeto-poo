@@ -26,5 +26,14 @@ public class Aluno extends Usuario{
 	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
+
+	@Override
+	public String toString() {
+		return "Nome: " + getNome() + 
+				"\nProntuário: " + getProntuario() +
+				"\nE-mail: " + this.email +
+				"\nCurso: " + this.curso;
+	}
+	
 	
 }

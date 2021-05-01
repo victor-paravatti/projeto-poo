@@ -31,6 +31,13 @@ public class Professor extends Usuario{
 		this.disciplMinistrada = disciplMinistrada;
 	}
 	
+	public String toString() {
+		return "Nome: " + getNome() + 
+				"\nProntu·rio: " + getProntuario() +
+				"\n¡rea: " + this.area +
+				"\nDisciplina: " + this.disciplMinistrada.getNome();
+	}
+	
 	
 
 }

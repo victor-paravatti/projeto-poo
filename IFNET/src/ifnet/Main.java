@@ -225,9 +225,7 @@ public class Main {
 										
 									}while(!prosseguir);
 									
-									System.out.println("Título: " + conteudoAlt.get(posicao).getTitulo());
-									System.out.println("Tipo: " + conteudoAlt.get(posicao).getTipoConteudo());
-									System.out.println("Publicador: " + conteudoAlt.get(posicao).getPublicador().getNome());
+									System.out.println(conteudoAlt.get(posicao));
 								}
 								
 								System.out.println("1.Pesquisar Conteúdo\n2.Publicar Conteúdo\n3.Excluir Conteúdo\nV.Voltar");
@@ -368,15 +366,10 @@ public class Main {
 										
 									}while(!prosseguir);
 									
-									System.out.println("Nome: " + grupoAlt.get(posicao).getNome());
-									System.out.println("Disciplina: " + grupoAlt.get(posicao).getDisciplina().getNome());
-									System.out.println("Criador: " + grupoAlt.get(posicao).getCriador().getNome());
-									System.out.println("Quantidade de Usuários: " + grupoAlt.get(posicao).getUsuariosGrupo().size());
-									System.out.println("Tipo: " + grupoAlt.get(posicao).getTipo());
-									
+									System.out.println(grupoAlt.get(posicao));
+							
 								}
 								
-								System.out.println("Grupo");
 								System.out.println("1.Pesquisar Grupo\n2.Consultar Grupo de Pesquisa por Disciplina\n"
 										+ "3.Consultar Grupos com Mais Usuarios\n4.Entrar no Grupo");
 								if(usuarioAtual.getClass() == Professor.class) 
@@ -799,9 +792,7 @@ public class Main {
 										
 									}while(!prosseguir);
 									
-									System.out.println("Nome: " + cursoAlt.get(posicao).getNome());
-									System.out.println("Semestres: " + cursoAlt.get(posicao).getSemestres());
-									
+									System.out.println(cursoAlt.get(posicao));
 								}
 								
 								System.out.println("1.Pesquisar Curso\n2.Cadastrar Curso\n3.Excluir Curso\nV.Voltar");

@@ -97,6 +97,16 @@ public class Grupo {
 		return gruposPesquisados;
 		
 	}
+
+	@Override
+	public String toString() {
+		return "Nome: " + this.nome + 
+				"\nDisciplina: " + this.disciplina.getNome() + 
+				"\nQuantidade de Usuários: " + this.usuariosGrupo.size() + 
+				"\nCriador: " + this.criador.getNome() + 
+				"\nTipo: " + this.tipo;
+	}
+	
 	
 
 }

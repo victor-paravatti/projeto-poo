@@ -81,6 +81,8 @@ public abstract class Usuario {
 		return false;
 		
 	}
-	
+
+	@Override
+	public abstract String toString();
 	
 }

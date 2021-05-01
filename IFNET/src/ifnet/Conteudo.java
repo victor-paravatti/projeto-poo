@@ -51,4 +51,13 @@ public class Conteudo {
 		
 	}
 
+	@Override
+	public String toString() {
+		return "Titulo: " + titulo + 
+				"\nTipo: " + tipo + 
+				"\nPublicador: " + publicador.getNome();
+	}
+	
+	
+
 }
