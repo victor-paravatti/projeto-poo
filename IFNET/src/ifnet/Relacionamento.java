@@ -2,49 +2,31 @@
 
 
 
+
+
+
+
+
+
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-
-
-
-
-
+import java.util.HashMap;
 
 public class Relacionamento {
-
-	static Scanner leitura = new Scanner(System.in);
 	
 	private Usuario usuario;
-
 	Map<Integer,ArrayList<Usuario>> map = new HashMap<Integer,ArrayList<Usuario>>();
+	
+	static Scanner leitura = new Scanner(System.in);
 	
 	public Relacionamento(Usuario usuario) {
 		this.usuario = usuario;
 		this.criarMapa();
 	}
-	
+
 	public Usuario getUsuario(String nome) {
-
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.HashMap;
-
-public class Relacionamento {
-	
-	private Usuario usuario;
-	Map<Integer,ArrayList<Usuario>> map = new HashMap<Integer,ArrayList<Usuario>>();
-	
-	static Scanner leitura = new Scanner(System.in);
-	
-	public Relacionamento(Usuario usuario) {
-		this.usuario = usuario;
-		this.criarMapa();
-	}
-
-	public Usuario getUsuario() {
 
 		return usuario;
 	}
