@@ -1,4 +1,4 @@
-
+package ifnet;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,12 +29,6 @@ public class Main {
 		conteudos.add(new Conteudo("Principos da Programação", "Livro", usuarios.get(1)));
 		conteudos.add(new Conteudo("Video Aula de Estatistica", "Video", usuarios.get(0)));
 		ArrayList<Grupo> grupos = new ArrayList<Grupo>();
-
-		ArrayList<Curso> cursos = new ArrayList<Curso>();
-
-			
-
-
 		grupos.add(new Grupo("Pré Projeto TCC", disciplinas.get(0), usuarios.get(1), "Trabalho"));
 		grupos.add(new Grupo("Praticar Mátematica", disciplinas.get(2), usuarios.get(2), "Pesquisa"));
 		grupos.add(new Grupo("Aulas de Mátematica", disciplinas.get(2), usuarios.get(2), "Trabalho"));
@@ -44,7 +38,6 @@ public class Main {
 		ArrayList<Usuario> usuarioAlt = new ArrayList<Usuario>();
 		ArrayList<Curso> cursoAlt = new ArrayList<Curso>();
 		
-
 		Scanner leitura = new Scanner(System.in);
 		
 		Curso cur = null;
@@ -90,6 +83,7 @@ public class Main {
 										+ "informações em nossos registros. Verifique-as e tente novamente.");
 							}
 						}while(usuarioAtual == null);
+						
 						break;
 					case "2":
 						
@@ -703,9 +697,6 @@ public class Main {
 								switch(opcao) {
 								
 									case "1":
-
-										disciplinas.addAll(Disciplina.cadastrarDisciplina());
-
 										
 										System.out.println("Informe o nome da disciplina: ");
 										nome = leitura.nextLine();
@@ -714,7 +705,6 @@ public class Main {
 										
 										if(disciplinaAlt.size() == 0) System.out.println("Não foi encontrado nenhuma disciplina com o nome informado");
 								
-
 										break;
 									case "2":
 										
