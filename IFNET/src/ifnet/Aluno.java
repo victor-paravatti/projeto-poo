@@ -1,13 +1,9 @@
 
 
-import java.util.Scanner;
-
 public class Aluno extends Usuario{
 	
 	private String email;
 	private Curso curso;
-	
-	Scanner leitura = new Scanner(System.in);
 	
 	public Aluno(String nome, String prontuario, String senha, String email, Curso curso) {
 		super(nome, prontuario, senha);
@@ -30,5 +26,14 @@ public class Aluno extends Usuario{
 	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
+
+	@Override
+	public String toString() {
+		return "Nome: " + getNome() + 
+				"\nProntuário: " + getProntuario() +
+				"\nE-mail: " + this.email +
+				"\nCurso: " + this.curso;
+	}
+	
 	
 }

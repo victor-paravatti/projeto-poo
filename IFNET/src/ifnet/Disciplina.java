@@ -1,7 +1,6 @@
 
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Disciplina {
 	
@@ -9,6 +8,7 @@ public class Disciplina {
 	private String semestre;
 	private String curso;
 	
+
 	static Scanner leitura = new Scanner(System.in);
 
 	public String getCurso() {
@@ -19,6 +19,7 @@ public class Disciplina {
 		this.curso = curso;
 	}
 	
+
 	public Disciplina(String nome) {
 		Disciplina disciplina = this;
 		Disciplina.nome = nome;
@@ -43,6 +44,7 @@ public class Disciplina {
 	public void setSemestre(String semestre) {
 		this.semestre = semestre;
 	}
+
 
 	public static ArrayList<Disciplina> cadastrarDisciplina() {
 		
@@ -89,10 +91,17 @@ public class Disciplina {
 		
 		System.out.println("Informe o n�mero da disciplina desejada: ");
 		posicao = Integer.parseInt(leitura.nextLine());
+
+	public static ArrayList<Disciplina> pesquisarDisciplinas(ArrayList<Disciplina> disciplinas, String nome) {
+	
+		ArrayList<Disciplina> disciplinaPesquisada = new ArrayList<Disciplina>();
+
 		
-		disciplinaEscolhida = disciplinas.get(posicao);
+		for(Disciplina disciplina:disciplinas) 
+			if(disciplina.getNome().toLowerCase().contains(nome.toLowerCase())) 
+				disciplinaPesquisada.add(disciplina);
 		
-		return disciplinaEscolhida;
+		return disciplinaPesquisada;
 		
 	}
 

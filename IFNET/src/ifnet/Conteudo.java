@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Conteudo {
 	
 	private String titulo;
-	private String tipoConteudo;
+	private String tipo;
 	private Usuario publicador;
 
 	static Scanner leitura = new Scanner(System.in);
@@ -20,16 +20,16 @@ public class Conteudo {
 
 	public Conteudo(String titulo, String tipoConteudo, Usuario publicador) {
 		this.titulo = titulo;
-		this.tipoConteudo = tipoConteudo;
+		this.tipo = tipoConteudo;
 		this.publicador = publicador;
 
 	}	
 	
 	public String getTipoConteudo() {
-		return tipoConteudo;
+		return tipo;
 	}
 	public void setTipoConteudo(String tipoConteudo) {
-		this.tipoConteudo = tipoConteudo;
+		this.tipo = tipoConteudo;
 	}
 	public Usuario getPublicador() {
 		return publicador;
@@ -63,6 +63,7 @@ public class Conteudo {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+
 	
 	public static Conteudo inseriConteudo(ArrayList<Conteudo> conteudos, Usuario usuario) {
 		
@@ -112,25 +113,41 @@ public class Conteudo {
 		}while(opcao != 1 && opcao != 2);
 	}
 
-	private static Conteudo exibirConteudos(ArrayList<Conteudo> conteudos) {
+
+	public static ArrayList<Conteudo> pesquisarConteudos(ArrayList<Conteudo> conteudos, String titulo) {
 		
-		int posicao;
-		Conteudo conteudoEscolhido;
-		
+
 		System.out.println("Conteúdos");
+
+		ArrayList<Conteudo> conteudosPesquisados = new ArrayList<Conteudo>();
+
 		
 		for(Conteudo conteudo:conteudos) {
-			System.out.println(conteudo.getTitulo());
+			if(conteudo.getTitulo().toLowerCase().contains(titulo.toLowerCase())) 
+				conteudosPesquisados.add(conteudo);
 		}
 		
+
 		System.out.println("Informe o número do conteudo desejado: ");
 		posicao = Integer.parseInt(leitura.nextLine());
 		
 		conteudoEscolhido = conteudos.get(posicao);
 		
 		return conteudoEscolhido;
+
+		return conteudosPesquisados;
+
 		
 
 	}
+
+	@Override
+	public String toString() {
+		return "Titulo: " + titulo + 
+				"\nTipo: " + tipo + 
+				"\nPublicador: " + publicador.getNome();
+	}
+	
+	
 
 }
