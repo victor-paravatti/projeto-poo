@@ -1,6 +1,7 @@
 
 
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,6 +26,26 @@ public class Relacionamento {
 	}
 	
 	public Usuario getUsuario(String nome) {
+
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.HashMap;
+
+public class Relacionamento {
+	
+	private Usuario usuario;
+	Map<Integer,ArrayList<Usuario>> map = new HashMap<Integer,ArrayList<Usuario>>();
+	
+	static Scanner leitura = new Scanner(System.in);
+	
+	public Relacionamento(Usuario usuario) {
+		this.usuario = usuario;
+		this.criarMapa();
+	}
+
+	public Usuario getUsuario() {
+
 		return usuario;
 	}
 	
@@ -37,14 +58,14 @@ public class Relacionamento {
 		this.map.put(2, new ArrayList<Usuario>());
 		this.map.put(3, new ArrayList<Usuario>());
 	}
-	
+
 	//implementar
 	public void relacionarUsuario(ArrayList<Usuario> usuarios) {
 		int opc = 0 , grau;
 		String nome;
 		Usuario usuario;
 
-		// Implementação da Criação do grau de amizade do usuario
+		// ImplementaÃ§Ã£o da CriaÃ§Ã£o do grau de amizade do usuario
 		do {
 
 			System.out.println("Para Criar um vinculo de Conhecido digite {1}\n" + 
@@ -67,20 +88,28 @@ public class Relacionamento {
 	public void definirGrauConfiabilidade(Map<Integer,ArrayList<Usuario>> map) {
 		Usuario usuario = null;
 		String nome;
+
+	// *Implementação para criar uma relação com outro usuario e atribuir as mesmas de forma predefinida
+	public static Relacionamento criarRelacionamento() {
+		return null;
+	}
+	
+	public static void alterarGrauConfiabilidade() {
+
 		
 		int opc = 0, grau;
 		
 		
 		do {
-			//iteração para mostrar o conteudo do mapa 
+			//iteraÃ§Ã£o para mostrar o conteudo do mapa 
 			for(Map.Entry<Integer, ArrayList<Usuario>> entry : map.entrySet()){ 
 				
 				// Print para mostrar a chave e o valor relacionado a chave 
 				System.out.println(entry.getKey() + "" + entry.getValue());	
-				System.out.println("Digite o Grau de relacionamento no qual  a pessoa que deseja trocar está");
+				System.out.println("Digite o Grau de relacionamento no qual  a pessoa que deseja trocar estÃ¡");
 				grau = Integer.parseInt(leitura.nextLine());
 
-				// Implementação daleitura e subistuição fo grau de relacionamento do usuario
+				// ImplementaÃ§Ã£o daleitura e subistuiÃ§Ã£o fo grau de relacionamento do usuario
 				if(map.containsKey(grau)){
 					System.out.println("Digite o nome da pesoa no qual deseja trocar de Grau de relacionamento");
 					nome = leitura.nextLine();
@@ -97,7 +126,7 @@ public class Relacionamento {
 						}
 					}										
 				}
-				System.out.println("Digite o Grau de relacionamento no qual  a pessoa que deseja trocar irá ficar");
+				System.out.println("Digite o Grau de relacionamento no qual  a pessoa que deseja trocar irÃ¡ ficar");
 				grau = Integer.parseInt(leitura.nextLine());
 				if(map.containsKey(grau)){
 					map.get(grau).add(usuario);
@@ -107,6 +136,7 @@ public class Relacionamento {
 	}
 
 	//implementar
+
 	public Usuario consultarUsuarioMaisRelacionado() {
 
 		int cont = 0;
@@ -141,6 +171,10 @@ public class Relacionamento {
 			}
 		}
 		return usuario.cont;
+
+	public static ArrayList<Usuario> consultarUsuariosMaisRelacionado(ArrayList<Relacionamento> relacionamentos) {
+		return null;
+
 	}
 }
 

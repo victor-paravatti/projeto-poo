@@ -3,24 +3,21 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 public class Curso {
 	
 	private String nome;
 	private int semestres;
-	private Map<Integer, Disciplina> disciplinasPorSemestre = new HashMap<Integer, Disciplina>();
-	
-	static Scanner leitura = new Scanner(System.in);
-	
+	private Map<Integer, ArrayList<Disciplina>> disciplinasPorSemestre = new HashMap<Integer, ArrayList<Disciplina>>();
+
 	public Curso(String nome) {
 		this.nome = nome;
 	}
 	
-	public Curso(String nome, int semestres, ArrayList<Disciplina> disciplinas) {
+	public Curso(String nome, int semestres) {
 		this.nome = nome;
 		this.semestres = semestres;
-		this.setDisciplinasPorSemestre(disciplinas);
+		criarMapa(semestres);
 	} 
 	
 	public String getNome() {
@@ -38,10 +35,11 @@ public class Curso {
 	public void setSemestres(int semestres) {
 		this.semestres = semestres;
 	}
-
-	public Map<Integer, Disciplina> getDisciplinasPorSemestre() {
+	
+	public Map<Integer, ArrayList<Disciplina>> getDisciplinasPorSemestre() {
 		return disciplinasPorSemestre;
 	}
+
 
 	public void setDisciplinasPorSemestre(ArrayList<Disciplina> disciplinas) {
 		
@@ -119,20 +117,28 @@ public class Curso {
 					System.out.println("Op��o inv�lida");
 			}
 		}while(opcao != 1 && opcao != 2);
+
+	public void setDisciplinasPorSemestre(int semestre, Disciplina disciplina) {
+		this.disciplinasPorSemestre.get(semestre).add(disciplina);
 	}
 	
-	public static Curso exibirCursos(ArrayList<Curso> cursos) {
+	public void criarMapa(int semestres) {
+		for(int semestre = 1; semestre <= semestres; semestre++) {
+			this.disciplinasPorSemestre.put(semestre, new ArrayList<Disciplina>());
+		}
+
+	}
+
+	public static ArrayList<Curso> pesquisaCurso(ArrayList<Curso> cursos, String nome) {
 		
-		int posicao;
-		Curso cursoEscolhido;
-		
-		System.out.println("Cursos");
+		ArrayList<Curso> cursosPesquisados = new ArrayList<Curso>();
 		
 		for(Curso curso:cursos) {
-			posicao = cursos.indexOf(curso);
-			System.out.println(posicao + ": " + curso.getNome());
+			if(curso.getNome().toLowerCase().contains(nome.toLowerCase())) 
+				cursosPesquisados.add(curso);
 		}
 		
+
 		System.out.println("Informe o n�mero da grupo desejado: ");
 		posicao = Integer.parseInt(leitura.nextLine());
 		
@@ -140,6 +146,17 @@ public class Curso {
 		
 		return cursoEscolhido;
 		
+
+		return cursosPesquisados;
+	}
+
+	@Override
+	public String toString() {
+		return "Nome: " + this.nome + 
+				"Quantidade de Semestres: " + this.semestres;
+
 	}
 	
+	
+
 }
