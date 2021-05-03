@@ -9,7 +9,10 @@ public abstract class Usuario {
 
 
 	private String prontuario;
-	private String senha;	
+	private String senha;
+
+
+	public Usuario cont;	
 	static Scanner leitura = new Scanner(System.in);
 
 

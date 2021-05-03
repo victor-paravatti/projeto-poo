@@ -97,7 +97,7 @@ public class Relacionamento {
 						}
 					}										
 				}
-				System.out.println("Digite o Grau de relacionamento no qual  a pessoa que deseja trocar ir´s ficar");
+				System.out.println("Digite o Grau de relacionamento no qual  a pessoa que deseja trocar irá ficar");
 				grau = Integer.parseInt(leitura.nextLine());
 				if(map.containsKey(grau)){
 					map.get(grau).add(usuario);
@@ -108,7 +108,39 @@ public class Relacionamento {
 
 	//implementar
 	public Usuario consultarUsuarioMaisRelacionado() {
-		return null;
+
+		int cont = 0;
+
+		for(Map.Entry<Integer, ArrayList<Usuario>> entry : map.entrySet()){
+			if(map.containsKey(1)){
+				ArrayList<Usuario> usuarios = entry.getValue();
+					for(Usuario usuariosGrupo : usuarios){
+						if(usuariosGrupo.getNome().equals(usuarios)){
+							usuario= usuariosGrupo;
+							cont++;
+						}
+					}	
+			}
+			if(map.containsKey(2)){
+				ArrayList<Usuario> usuarios = entry.getValue();
+					for(Usuario usuariosGrupo : usuarios){
+						if(usuariosGrupo.getNome().equals(usuarios)){
+							usuario= usuariosGrupo;
+							cont++;
+						}
+					}	
+			}
+			if(map.containsKey(3)){
+				ArrayList<Usuario> usuarios = entry.getValue();
+					for(Usuario usuariosGrupo : usuarios){
+						if(usuariosGrupo.getNome().equals(usuarios)){
+							usuario= usuariosGrupo;
+							cont++;
+						}
+					}	
+			}
+		}
+		return usuario.cont;
 	}
 }
 
