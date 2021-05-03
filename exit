@@ -1,0 +1,362 @@
+[33mcommit 93b987677a8b81e2ed41a996e994bb579baf795d[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: victor-paravatti <guibis17@gmail.com>
+Date:   Mon May 3 19:52:01 2021 -0300
+
+    classe relacionamento alterada
+
+[33mcommit c9959ae9bdd7817c07ab3fba22a7ccfc7d18b136[m
+Merge: 95ce6c0 da38264
+Author: Victor G Paravatti <59876332+victor-paravatti@users.noreply.github.com>
+Date:   Mon May 3 19:24:59 2021 -0300
+
+    Merge pull request #6 from victor-paravatti/DemetriosP-main
+    
+    Demetrios p main
+
+[33mcommit da3826493b8f9ea6d8b138c3e387f3d28439cb26[m[33m ([m[1;31morigin/DemetriosP-main[m[33m)[m
+Merge: e0f11b8 c35f513
+Author: Victor G Paravatti <59876332+victor-paravatti@users.noreply.github.com>
+Date:   Mon May 3 19:22:53 2021 -0300
+
+    Merge branch 'main' into DemetriosP-main
+
+[33mcommit e0f11b8a55bcc2ec61c93c54b78ecdb6b8d925cc[m
+Author: victor-paravatti <guibis17@gmail.com>
+Date:   Mon May 3 16:42:19 2021 -0300
+
+    implementação da consulta o usuario mais relacionado
+
+[33mcommit c35f513d55c0052df00d47516df7adccec6fc443[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Sat May 1 18:59:54 2021 -0300
+
+    Override do método toString de algumas classes
+
+[33mcommit ed7b0fc859a442dc5f5649917872cb92a1ba70c0[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Sat May 1 18:37:41 2021 -0300
+
+    Criação de método para verificar se um usuário está cadastrado e exceção para evitar que um usuário repetido seja cadastrado
+
+[33mcommit 40bb59e0c24a36a38b85da5f53f11fff8cc1ea22[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Thu Apr 29 22:46:38 2021 -0300
+
+    Alteração da main
+
+[33mcommit 95ce6c0d2542e1370a98cbecf0acdaf846826e39[m
+Merge: ea6d6f6 80bf820
+Author: Victor G Paravatti <59876332+victor-paravatti@users.noreply.github.com>
+Date:   Thu Apr 29 21:05:01 2021 -0300
+
+    Merge pull request #5 from victor-paravatti/DemetriosP-main
+    
+    Demetrios p main
+
+[33mcommit 80bf82037fa9e7cbccde8ef62dedd5dfb28c2f6d[m
+Author: victor-paravatti <guibis17@gmail.com>
+Date:   Thu Apr 29 21:03:15 2021 -0300
+
+    ja foi implementato a função de definir e trocar o grau de relacionamento do usuario
+
+[33mcommit 5c68a2daee649223c81ee8725ce056538bdc2b77[m
+Author: victor-paravatti <guibis17@gmail.com>
+Date:   Thu Apr 29 19:39:42 2021 -0300
+
+    teste
+
+[33mcommit 77e99e4870cd64bab0d728053f44c10a98d3ae80[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Thu Apr 29 11:55:01 2021 -0300
+
+    Alteração em diversos arquivos
+
+[33mcommit cae3a7b15e0e73f9bc41898a70c3513658046b0c[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Tue Apr 27 22:43:01 2021 -0300
+
+    Alteração de todas as classes e main
+
+[33mcommit eb9e5ba25d95712a2dfb239fca19eaacb295beab[m
+Author: victor-paravatti <guibis17@gmail.com>
+Date:   Tue Apr 27 22:15:18 2021 -0300
+
+    foda
+
+[33mcommit ea6d6f6aa9efcb0f85db98071c9b3c3dd6cfcef9[m
+Merge: 2a0397d d8c03d1
+Author: Victor G Paravatti <59876332+victor-paravatti@users.noreply.github.com>
+Date:   Tue Apr 27 22:07:08 2021 -0300
+
+    Merge pull request #4 from victor-paravatti/DemetriosP-main
+    
+    DemetriosP-main
+
+[33mcommit d8c03d1dc904663c104f1a360f99ad00e98383ea[m
+Merge: b21253a 2a0397d
+Author: Victor G Paravatti <59876332+victor-paravatti@users.noreply.github.com>
+Date:   Tue Apr 27 22:06:58 2021 -0300
+
+    Merge branch 'main' into DemetriosP-main
+
+[33mcommit b21253ae5fa3a5766c6804b162571575389cb55f[m
+Author: victor-paravatti <guibis17@gmail.com>
+Date:   Tue Apr 27 21:55:55 2021 -0300
+
+    Implementação da função editar grau
+
+[33mcommit 84938c2538a311bcfa17e886ba498107d04c97db[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Tue Apr 27 15:38:36 2021 -0300
+
+    Criação do método pesquisaUsuario
+
+[33mcommit 4fc880afa6343342d134b13b79008ac929fa660d[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Mon Apr 26 22:46:43 2021 -0300
+
+    Alteração da classe relacionamento
+
+[33mcommit 64f6b45650d98c1fbe2ab225a87c38dafab09d48[m
+Merge: e28fa93 2a0397d
+Author: Demetrios Pantaleão <pantaleao15@hotmail.com>
+Date:   Mon Apr 26 22:37:43 2021 -0300
+
+    Merge pull request #4 from victor-paravatti/main
+    
+    Aceito.
+
+[33mcommit 2a0397df1e1182595580c2cb3c4aa6d6aa4464c2[m
+Merge: 38f2125 e28fa93
+Author: Victor G Paravatti <59876332+victor-paravatti@users.noreply.github.com>
+Date:   Mon Apr 26 22:36:22 2021 -0300
+
+    Merge branch 'main' into main
+
+[33mcommit e28fa93cace07ee35f96f94bc447a8563d5bd68f[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Mon Apr 26 22:30:07 2021 -0300
+
+    Alteração de vários métodos e classes
+
+[33mcommit fab16afdb209fa48547ff23111e63bd90dc26348[m
+Merge: 38f2125 b676dd4
+Author: victor-paravatti <guibis17@gmail.com>
+Date:   Mon Apr 26 22:14:02 2021 -0300
+
+    Merge branch 'main' of https://github.com/DemetriosP/projeto-poo into DemetriosP-main
+
+[33mcommit b676dd438aa63009ec7e882e7f35f657a2bf0885[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Mon Apr 26 22:04:16 2021 -0300
+
+    Várias alterações em várias classes
+
+[33mcommit 38f21250f1a0a49137c4862d72a0544a821af93e[m
+Author: victor-paravatti <guibis17@gmail.com>
+Date:   Sat Apr 24 16:18:14 2021 -0300
+
+    Fix Pasta
+
+[33mcommit c9312051b85bdb79aed624976c3a04fa2c460a02[m
+Author: victor-paravatti <guibis17@gmail.com>
+Date:   Sat Apr 24 16:14:42 2021 -0300
+
+    fix de pasta
+
+[33mcommit 2af4c8e19f3764f1d717916ed26889d57a96a420[m
+Author: victor-paravatti <guibis17@gmail.com>
+Date:   Sat Apr 24 16:10:14 2021 -0300
+
+    commit limpo antes da inplementação do map
+
+[33mcommit 9419cd12f3065be36ff581e28199679afa54b94f[m
+Merge: ddb3b71 8986656
+Author: Victor G Paravatti <59876332+victor-paravatti@users.noreply.github.com>
+Date:   Mon Apr 19 14:39:10 2021 -0300
+
+    Merge pull request #1 from DemetriosP/main
+    
+    atualizando de novo o meu repositório
+
+[33mcommit 8986656de65aa15b8f7fa62e0137434f96102b30[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Sun Apr 18 15:12:17 2021 -0300
+
+    Refatoração do código de várias classes e main
+
+[33mcommit e783e9cc54b227333fe06cf093edd491ce5bdbd3[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Sat Apr 17 19:10:13 2021 -0300
+
+    Exclusão da classe cadastroUsuario
+
+[33mcommit b1ae155ccd62c8bccd8d26c71c5932ec0ba8b689[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Sat Apr 17 19:07:19 2021 -0300
+
+    Implementação dos métodos da classe Grupo
+
+[33mcommit b10f384ce5586b9e78af5723f9254137e1134464[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Sat Apr 17 19:05:30 2021 -0300
+
+    Implementação dos métodos da classe Grupo
+
+[33mcommit 3a4511fbd0de28c08182afd8b6ad0a80bcd4cae7[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Sat Apr 17 12:15:22 2021 -0300
+
+    Implementação parcial dos métodos da classe Grupo
+
+[33mcommit c43c54a0a3da4d5551a48ff109f22ffa35fd7019[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Thu Apr 15 22:37:43 2021 -0300
+
+    Diversas alterações nas classes
+
+[33mcommit 8ba1682d25c6fbfaff378dbece758f8e3f9ba7c5[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Thu Apr 15 21:34:51 2021 -0300
+
+    Refatoração do método cadatrarCurso da classe Curso
+
+[33mcommit 25194265fcc41a4948b3521cd25fd04c083d8985[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Thu Apr 15 21:24:25 2021 -0300
+
+    Implementação do método cadastrarCurso na classe curso
+
+[33mcommit 90caa544832684dde0f49f1233fe4c91b0e7860e[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Thu Apr 15 20:13:17 2021 -0300
+
+    Implementação do método getDisciplina da classe curso
+
+[33mcommit b7a28850000ed51373c56eafa8f1c2d849ed8644[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Wed Apr 14 18:10:41 2021 -0300
+
+    Alteração main e disciplina
+
+[33mcommit 5b6d404572a4048efe2572cb84b40de621101a31[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Tue Apr 13 22:09:57 2021 -0300
+
+    Alteração da classe grupo e implementação de métodos da classe curso
+
+[33mcommit 6f4626432c8c30595ed94ea4157703bbd307f2ee[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Tue Apr 13 21:32:16 2021 -0300
+
+    Alteração da classe grupo
+
+[33mcommit 20d0bbbd60e83c05dccb328935e6c0b81104873a[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Tue Apr 13 20:21:41 2021 -0300
+
+    Correção da indentação e acentos
+
+[33mcommit 7b5437f4968bf33b5e95046767c1c3923f5e8e78[m
+Merge: aefd43e ddb3b71
+Author: Demetrios Pantaleão <pantaleao15@hotmail.com>
+Date:   Mon Apr 12 20:12:36 2021 -0300
+
+    Merge pull request #3 from victor-paravatti/main
+    
+    Merge aceito.
+
+[33mcommit ddb3b713efdbd41b5f90dc5aa9ac5ba3775eb3fe[m
+Merge: aaca9d3 aefd43e
+Author: victor-paravatti <guibis17@gmail.com>
+Date:   Mon Apr 12 20:03:29 2021 -0300
+
+    certo
+
+[33mcommit aefd43e72f27bb425bf55b23028843340c79dbf0[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Mon Apr 12 19:48:46 2021 -0300
+
+    Alteração no main
+
+[33mcommit aaca9d3fcd2ee9e2493adf16e669565c7eb2e45a[m
+Merge: 8b5390c 5726d06
+Author: victor-paravatti <guibis17@gmail.com>
+Date:   Mon Apr 12 19:33:58 2021 -0300
+
+    Class disciplina e Conteudo pronto
+
+[33mcommit 8b5390cd200ef1aee796d607619f665d82cfec27[m
+Author: victor-paravatti <guibis17@gmail.com>
+Date:   Sun Apr 11 16:10:51 2021 -0300
+
+    certo
+
+[33mcommit 67c0ae924966055b937622b273b18a91db9d8dd6[m
+Author: victor-paravatti <guibis17@gmail.com>
+Date:   Sun Apr 11 16:08:46 2021 -0300
+
+    certo
+
+[33mcommit 5726d066f24298f69c6577b9de697dba76c8a4fd[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Sun Apr 11 15:33:06 2021 -0300
+
+    Continuação da implementação parcial da main
+
+[33mcommit 09591c67090993ac49d3103c0a77420b206c6a9a[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Sat Apr 10 19:29:35 2021 -0300
+
+    Implementação parcial da main
+
+[33mcommit 65f83a1dac742d0dc596849519bbec06976ce653[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Sat Apr 10 14:25:16 2021 -0300
+
+    Alteração do método cadastrarUsuario e implementação dos métodos excluirUsuario e loginUsuario
+
+[33mcommit 4eea150fd334bc23547ac754c3f826c9acdd7e8c[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Fri Apr 9 16:30:27 2021 -0300
+
+    Implementação do cadastrar usuário
+
+[33mcommit 75c59d9779ba63565d277cafbcb462d1d1ac3f5d[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Mon Apr 5 21:34:38 2021 -0300
+
+    Criação dos contrutores do Usuário, Aluno e Professor
+
+[33mcommit 30fae245db10b1b7255c3043422ba7373b76a547[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Fri Apr 2 18:29:58 2021 -0300
+
+    Ciração de nossas classes e o esqueleto dos métodos
+
+[33mcommit 264e0b4f14586790ffee448cd4f8b334825bf384[m
+Merge: 00f136d b4b9abc
+Author: Demetrios Pantaleão <pantaleao15@hotmail.com>
+Date:   Thu Mar 25 09:26:35 2021 -0300
+
+    Merge pull request #2 from victor-paravatti/BranchVictor
+    
+    Branch victor
+
+[33mcommit b4b9abceffffc1bd64e8654fbc2d5c9f53353b21[m
+Author: victor-paravatti <guibis17@gmail.com>
+Date:   Wed Mar 24 22:51:21 2021 -0300
+
+    testepull
+
+[33mcommit 9e465ed5de2a163d4be5e65e5455868b9f04d8fd[m
+Author: victor-paravatti <guibis17@gmail.com>
+Date:   Wed Mar 24 22:39:56 2021 -0300
+
+    teste
+
+[33mcommit 00f136d37f3d0e0f8b67656b2a7d6d17a147e7ac[m
+Author: Demetrios <pantaleao15@hotmail.com>
+Date:   Tue Mar 23 16:19:25 2021 -0300
+
+    esboço inicial do projeto
