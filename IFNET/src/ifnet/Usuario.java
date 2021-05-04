@@ -7,11 +7,13 @@ public abstract class Usuario {
 	private String nome;
 	private String prontuario;
 	private String senha;
+	private Relacionamento relacionamento;
 	
 	public Usuario(String nome, String prontuario, String senha) {
 		this.nome = nome;
 		this.prontuario = prontuario;
 		this.senha = senha;
+		this.relacionamento = new Relacionamento();
 	}
 	
 	public String getNome() {
@@ -38,6 +40,14 @@ public abstract class Usuario {
 		this.senha = senha;
 	}
 	
+	public Relacionamento getRelacionamento() {
+		return relacionamento;
+	}
+
+	public void setRelacionamento(Relacionamento relacionamento) {
+		this.relacionamento = relacionamento;
+	}
+	
 	//faz o login do usuário, recebendo o array de usuários
 	public static Usuario loginUsuario(ArrayList<Usuario> usuarios, String prontuario, String senha) {
 		
@@ -52,7 +62,7 @@ public abstract class Usuario {
 		return null;
 	}
 	
-	public static ArrayList<Usuario> pesquisaUsuario(ArrayList<Usuario> usuarios, String nome) {
+	public static ArrayList<Usuario> pesquisarUsuario(ArrayList<Usuario> usuarios, String nome) {
 	
 		ArrayList<Usuario> usuariosPesquisados = new ArrayList<Usuario>();
 		
@@ -84,5 +94,5 @@ public abstract class Usuario {
 
 	@Override
 	public abstract String toString();
-	
+
 }

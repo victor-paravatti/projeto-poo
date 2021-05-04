@@ -3,142 +3,87 @@ package ifnet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
-
-
-
-
-
 
 public class Relacionamento {
-
-	static Scanner leitura = new Scanner(System.in);
 	
-	private Usuario usuario;
-
-	Map<Integer,ArrayList<Usuario>> map = new HashMap<Integer,ArrayList<Usuario>>();
+	private Map<Integer, ArrayList<Usuario>> grauUsuario = new HashMap<Integer, ArrayList<Usuario>>();
 	
-	public Relacionamento(Usuario usuario) {
-		this.usuario = usuario;
+	public Relacionamento() {
 		this.criarMapa();
 	}
 	
-	public Usuario getUsuario(String nome) {
-		return usuario;
+	public Map<Integer, ArrayList<Usuario>> getGrauUsuario() {
+		return grauUsuario;
 	}
-	
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+
+	public void setGrauUsuario(Map<Integer, ArrayList<Usuario>> grauUsuario) {
+		this.grauUsuario = grauUsuario;
 	}
 	
 	public void criarMapa() {
-		this.map.put(1, new ArrayList<Usuario>());
-		this.map.put(2, new ArrayList<Usuario>());
-		this.map.put(3, new ArrayList<Usuario>());
+		this.grauUsuario.put(0, new ArrayList<Usuario>());
+		this.grauUsuario.put(1, new ArrayList<Usuario>());
+		this.grauUsuario.put(2, new ArrayList<Usuario>());
 	}
 	
-	//implementar
-	public void relacionarUsuario(ArrayList<Usuario> usuarios) {
-		int opc = 0 , grau;
-		String nome;
-		Usuario usuario;
-
-		// Implementação da Criação do grau de amizade do usuario
-		do {
-
-			System.out.println("Para Criar um vinculo de Conhecido digite {1}\n" + 
-							   	"Para Criar um vinculo de Amigo digite {2}\n" + 
-								"Para Criar um vinculo de Melhor Amigo digite {3}");
-
-		 	grau = Integer.parseInt(leitura.nextLine());
-			System.out.println(" Informe o Nome da Pesosa no qual deseja criar vinculo");
-			nome = leitura.nextLine();
-			usuario = getUsuario(nome);		
-			map.get(grau).add(usuario);
-			System.out.println(" Se desejar sair Aperte {1}");
-			opc = Integer.parseInt(leitura.nextLine());
-
-		}while(opc != 0);
+	public static boolean relacionarUsuario(Usuario usuarioAtual, Usuario usuarioRelacionar) {
 		
-	}
-	
-	//implementar
-	public void definirGrauConfiabilidade(Map<Integer,ArrayList<Usuario>> map) {
-		Usuario usuario = null;
-		String nome;
+		Relacionamento relacionar = null;
+		ArrayList<Usuario> usuarios;
 		
-		int opc = 0, grau;
+		relacionar = usuarioAtual.getRelacionamento();
 		
-		
-		do {
-			//iteração para mostrar o conteudo do mapa 
-			for(Map.Entry<Integer, ArrayList<Usuario>> entry : map.entrySet()){ 
-				
-				// Print para mostrar a chave e o valor relacionado a chave 
-				System.out.println(entry.getKey() + "" + entry.getValue());	
-				System.out.println("Digite o Grau de relacionamento no qual  a pessoa que deseja trocar está");
-				grau = Integer.parseInt(leitura.nextLine());
-
-				// Implementação daleitura e subistuição fo grau de relacionamento do usuario
-				if(map.containsKey(grau)){
-					System.out.println("Digite o nome da pesoa no qual deseja trocar de Grau de relacionamento");
-					nome = leitura.nextLine();
-
-					ArrayList<Usuario> usuarios = entry.getValue();
-					Usuario.pesquisaUsuario(usuarios, nome);
-					for(Usuario usuariosGrupo : usuarios){
-						if(usuariosGrupo.getNome().equals(nome)){
-							if(map.containsValue(usuariosGrupo)){
-								usuario = usuariosGrupo;
-								map.get(grau).remove(usuariosGrupo);
-								break;
-							}								
-						}
-					}										
-				}
-				System.out.println("Digite o Grau de relacionamento no qual  a pessoa que deseja trocar irá ficar");
-				grau = Integer.parseInt(leitura.nextLine());
-				if(map.containsKey(grau)){
-					map.get(grau).add(usuario);
-				}						
-			}
-		}while(opc != 0);	
-	}
-
-	//implementar
-	public Usuario consultarUsuarioMaisRelacionado() {
-
-		int cont = 0;
-
-		for(Map.Entry<Integer, ArrayList<Usuario>> entry : map.entrySet()){
-			if(map.containsKey(1)){
-				ArrayList<Usuario> usuarios = entry.getValue();
-					for(Usuario usuariosGrupo : usuarios){
-						if(usuariosGrupo.getNome().equals(usuarios)){
-							usuario= usuariosGrupo;
-							cont++;
-						}
-					}	
-			}
-			if(map.containsKey(2)){
-				ArrayList<Usuario> usuarios = entry.getValue();
-					for(Usuario usuariosGrupo : usuarios){
-						if(usuariosGrupo.getNome().equals(usuarios)){
-							usuario= usuariosGrupo;
-							cont++;
-						}
-					}	
-			}
-			if(map.containsKey(3)){
-				ArrayList<Usuario> usuarios = entry.getValue();
-					for(Usuario usuariosGrupo : usuarios){
-						if(usuariosGrupo.getNome().equals(usuarios)){
-							usuario= usuariosGrupo;
-							cont++;
-						}
-					}	
+		for (Map.Entry<Integer , ArrayList<Usuario>> mapa : relacionar.grauUsuario.entrySet()) { 
+			
+			usuarios = mapa.getValue();
+			
+			for(Usuario usuario:usuarios) {
+				if(usuario.getProntuario().equals(usuarioRelacionar.getProntuario())) return false;
 			}
 		}
-		return usuario.cont;
+		
+		usuarioRelacionar.getRelacionamento().getGrauUsuario().get(1).add(usuarioAtual);
+		relacionar.grauUsuario.get(1).add(usuarioRelacionar);
+		return true;
+		
 	}
+	
+	public static void alterarGrauConfiabilidade(Usuario usuarioAtual, int grauAtual, int novoGrau, int posicaoRelacao) {
+		
+		Usuario usuario;
+		
+		usuario = usuarioAtual.getRelacionamento().grauUsuario.get(grauAtual).get(posicaoRelacao);
+		
+		usuarioAtual.getRelacionamento().grauUsuario.get(grauAtual).remove(posicaoRelacao);
+		
+		usuarioAtual.getRelacionamento().grauUsuario.get(novoGrau).add(usuario);
+		
+	}
+
+	public static Map<Integer, Integer> consultarUsuariosMaisRelacionado(ArrayList<Usuario> usuarios) {
+		
+		Map<Integer,Integer> maisRelacionados = new HashMap<Integer, Integer>();
+		
+		Relacionamento relacionamento = null;
+		
+		int tamanho = 0;
+		
+		for(Usuario usuario:usuarios) {
+			
+			relacionamento = usuario.getRelacionamento();
+			
+			for (Map.Entry<Integer , ArrayList<Usuario>> mapa : relacionamento.grauUsuario.entrySet()) { 
+				tamanho += mapa.getValue().size();
+			}
+			
+			maisRelacionados.put(usuarios.indexOf(usuario), tamanho);
+
+			tamanho = 0;
+		}
+		
+		maisRelacionados.values();
+		
+		return maisRelacionados;
+	}
+	
 }
