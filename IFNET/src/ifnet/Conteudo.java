@@ -11,9 +11,9 @@ public class Conteudo {
 
 	static Scanner leitura = new Scanner(System.in);
 	
-	public Conteudo(String titulo, String tipoConteudo, Usuario publicador) {
+	public Conteudo(String titulo, String tipo, Usuario publicador) {
 		this.titulo = titulo;
-		this.tipo = tipoConteudo;
+		this.tipo = tipo;
 		this.publicador = publicador;
 	}	
 	

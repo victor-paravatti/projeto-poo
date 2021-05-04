@@ -35,11 +35,13 @@ public class Main {
 		ArrayList<Grupo> grupoAlt = new ArrayList<Grupo>();
 		ArrayList<Conteudo> conteudoAlt = new ArrayList<Conteudo>();
 		ArrayList<Disciplina> disciplinaAlt = new ArrayList<Disciplina>();
-		ArrayList<Usuario> usuarioAlt = new ArrayList<Usuario>();
+		ArrayList<Usuario> usuariosAlt = new ArrayList<Usuario>();
 		ArrayList<Curso> cursoAlt = new ArrayList<Curso>();
+		Map<Integer,Integer> maisRelacionados = new HashMap<Integer, Integer>();
 		
 		Scanner leitura = new Scanner(System.in);
-		
+	
+		Usuario usu = null;
 		Curso cur = null;
 		Disciplina disc = null;
 		Grupo grup = null;
@@ -48,9 +50,9 @@ public class Main {
 		Curso cursoCadastro;
 		Area areaCadastro;
 		Usuario usuarioAtual = null;
-		boolean comecar = true, sair = true, voltar = true, entrou = false, prosseguir = false, cadastro = false;
-		String opcao = "", prontuario = "", senha, nome, tipo, titulo;	
-		int posicao = -1, semestre, semestres;
+		boolean comecar = true, sair = true, voltar = true, entrou = false, prosseguir = false, cadastro = false, relacionar = false;
+		String opcao = "", prontuario = "", senha, nome, tipo, titulo, grauConf[] = {"Conhecido", "Amigo", "Melhores Amigos"};	
+		int posicao = -1, semestre, semestres, grau, grauAtual = -1, novoGrau = -1;
 	
 		while(comecar) {
 			
@@ -179,7 +181,7 @@ public class Main {
 					voltar = true;
 					
 					System.out.println(usuarioAtual.getNome());
-					System.out.println("1.Conteudo\n2.Amizade\n3.Grupo\n4.Conta");
+					System.out.println("1.Conteudo\n2.Usuários\n3.Grupo\n4.Conta");
 					if(usuarioAtual.getClass() == Aluno.class) System.out.println("5.Disciplina\n6.Curso");
 					System.out.println("S.Sair");
 					opcao = leitura.nextLine().toUpperCase();
@@ -299,23 +301,174 @@ public class Main {
 						
 							break;
 						case "2":
-							
 							do {
 								
-								System.out.println("Amizade");
-								System.out.println("1.Enviar pedido de amizade\n2.Definir grau de confiabilidade"
-										+ "\n3.Consultar usuário com mais relacionamentos\nV.Voltar");
+								if(usuarios.size() > 1) {
+									
+									do {
+										
+										if(usuariosAlt.size() == 0) {
+											usuariosAlt = new ArrayList<Usuario>(usuarios);
+											System.out.println("Usuarios");
+										}else System.out.println("Resultado da busca");
+										
+										for(Usuario usuario:usuariosAlt) {
+											System.out.println(usuariosAlt.indexOf(usuario) +". " + usuario.getNome());
+										}
+										
+										System.out.println("Informe o número do usuário desejado: ");
+										
+										try {
+											
+											posicao = Integer.parseInt(leitura.nextLine());
+											
+											if(posicao >= usuariosAlt.size()) {
+												throw new OpcaoInexistenteException();
+											}
+											
+											prosseguir = true;
+											
+										} catch (NumberFormatException excecao) {
+											System.out.println("O valor informado não é um número inteiro");
+										} catch (OpcaoInexistenteException excecao) {
+											System.out.println(excecao.getMessage());
+											usuariosAlt.clear();
+										}
+										
+									}while(!prosseguir);
+									
+									System.out.println(usuariosAlt.get(posicao));
+								}
+								
+								System.out.println("1.Pesquisar Usuários\n2.Relacionar Usuários\n3.Alterar grau de confiabilidade\n4.Excluir Relacionamento"
+										+ "\n5.Consultar usuário com mais relacionamentos\nV.Voltar");
 								opcao = leitura.nextLine().toUpperCase();
+								
+								usuariosAlt.clear();
+								prosseguir = false;
 								
 								switch(opcao) {
 									case "1":
-										System.out.println("Pedido de amizade enviado");
+										
+										System.out.println("Pesquisar Usuário");
+										
+										System.out.println("Informe o nome do Usuário: ");
+										nome = leitura.nextLine();
+										
+										usuariosAlt = Usuario.pesquisarUsuario(usuarios, nome);
+										
+										if(usuariosAlt.size() == 0) System.out.println("Não foi encontrado nenhum usuário com o nome informado");
+										
 										break;
 									case "2":
-										System.out.println("Grau de amizade definido");
+										
+										relacionar = Relacionamento.relacionarUsuario(usuarioAtual, usuariosAlt.get(posicao));
+										
+										if(relacionar) System.out.println("O relacionamento foi criado");
+										else System.out.println("O usuário atual e o usuário informado já estão relacionados");
+										
 										break;
 									case "3":
-										System.out.println("Consultado usuários com mais relacionamentos");
+										
+										System.out.println("Usuários Relacionados");
+										for (Map.Entry<Integer , ArrayList<Usuario>> mapa : usuarioAtual.getRelacionamento().getGrauUsuario().entrySet()) { 
+											
+											grau = mapa.getKey();
+											usuariosAlt = mapa.getValue();
+
+											System.out.println("Grau de Confiabidade: " + grauConf[grau]);
+											
+											for(Usuario usuario:usuarios) {
+												System.out.println(usuarios.indexOf(usuario) + "Usuário: " + usuario.getNome());
+											}
+
+											System.out.println();
+											
+										}
+
+										do{
+
+											try {
+											
+												System.out.print("Informe o número da relação da qual deseja alterar o grau de confiabilidade: ");
+												posicao = Integer.parseInt(leitura.nextLine());
+												
+												System.out.println("Graus de confiabilidade\n0.Conhecidos\n1.Amigos\n2.Amigos Próximos");
+												
+												System.out.print("Informe o número do grau de confiabilidade atual da relação: ");
+												grauAtual = Integer.parseInt(leitura.nextLine());
+												
+												System.out.print("Informe o número do grau de confiabilidade para o qual a relação será alterada: ");
+												novoGrau = Integer.parseInt(leitura.nextLine());
+
+												prosseguir = true;
+												
+											} catch (NumberFormatException excecao) {
+												System.out.println("O valor informado não é um número inteiro");
+											}
+
+										}while(!prosseguir);
+
+										prosseguir = false;
+										
+										Relacionamento.alterarGrauConfiabilidade(usuarioAtual, grauAtual, novoGrau, posicao);
+										
+										System.out.println("Grau de relacionamento alterado");
+										
+										break;
+									case "4":
+										
+										System.out.println("Usuários Relacionados");
+										for (Map.Entry<Integer , ArrayList<Usuario>> mapa : usuarioAtual.getRelacionamento().getGrauUsuario().entrySet()) { 
+											
+											grau = mapa.getKey();
+											usuariosAlt = mapa.getValue();
+											
+											for(Usuario usuario:usuarios) {
+												System.out.println(usuarios.indexOf(usuario) + "Usuário: " + usuario.getNome());
+											}
+											
+										}
+										
+										try {
+											
+											System.out.print("Informe o número da relação que deseja excluir: ");
+											posicao = Integer.parseInt(leitura.nextLine());
+											
+										} catch (NumberFormatException excecao) {
+											System.out.println("O valor informado não é um número inteiro");
+										}
+										
+										for (Map.Entry<Integer , ArrayList<Usuario>> mapa : usuarioAtual.getRelacionamento().getGrauUsuario().entrySet()) { 
+											usuariosAlt = mapa.getValue();
+											
+											for(Usuario usuario:usuarios) {
+												if(usuarios.indexOf(usuario) == posicao) {
+													usuariosAlt.remove(posicao);
+													break;
+												}
+											}
+											
+										}
+										
+										System.out.println("Relacionamento excluido");
+										
+										break;
+									case "5":
+										
+										maisRelacionados = Relacionamento.consultarUsuariosMaisRelacionado(usuarios);
+										
+										System.out.println("TOP 10 Usuários mais relacionados");
+										
+										for (Map.Entry<Integer , Integer> mapa : maisRelacionados.entrySet()) { 
+								
+											for(int volta = 0; volta < 10; volta++) {
+												System.out.println("Usuário: " + usuarios.get(mapa.getKey()).getNome() + "Quantidade de relacionamentos: " + mapa.getValue());
+											}
+
+											break;
+										}
+										
 										break;
 									case "V":
 										voltar = false;
