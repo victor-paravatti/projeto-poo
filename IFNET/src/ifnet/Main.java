@@ -40,8 +40,7 @@ public class Main {
 		Map<Integer,Integer> maisRelacionados = new HashMap<Integer, Integer>();
 		
 		Scanner leitura = new Scanner(System.in);
-	
-		Usuario usu = null;
+		
 		Curso cur = null;
 		Disciplina disc = null;
 		Grupo grup = null;
